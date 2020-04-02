@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/demo2.css"/>
+    <script type="application/javascript" src="js/jquery.min.js"></script>
+    <script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <style>
+        .boxdiv:hover{
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.3);
+        }
+        .boxdiv img{
+            transition: all 0.6s;
+        }
+        .boxdiv img:hover{
+            transform: scale(1.1);
+        }
+
+        .tooltip-inner{
+            border: 1px solid #e0e0e0;
+            background-color: white;
+            box-shadow: 0px 6px 12px rgba(0,0,0,0.175);
+        }
+    </style>
+</head>
+<body style="background-color: #eee;">
+
+<nav class="navbar navbar-inverse" style="border-radius: 0px;background-color: #47475c;border-bottom: #47475c;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" style="margin-left: 27px;color: white;">绿建联咨询网</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" id="warn">
+                        <span class="glyphicon glyphicon-bell" style="font-size: 20px;z-index: 1"></span>
+                        <span class="badge">14</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="msg">
+                        <span class="  glyphicon glyphicon-envelope" style="font-size: 20px;"></span>
+                        <span class="badge">14</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" id="avatar_a">
+                        <img class="avatar_img" src="/imgs/01.jpg">
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">空山新雨 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">个人信息</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#" style="color: #8085e8">首页</a></li>
+                <li><a href="#">合作平台</a></li>
+                <li><a href="#">数据查询</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">相关政策<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">能耗分析</a></li>
+                        <li><a href="#">历史数据</a></li>
+                        <li><a href="#">运营报告</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">cop分析</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+
+<div class="jumbotron" style="height: 150px;padding-top:12px;background-color: #3a3a4f;margin-bottom: 15px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <h1 style="color: white;">Hello, world!</h1>
+            </div>
+            <div class="col-sm-6 col-sm-offset-1" style="margin-top: 35px;">
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" style="width: 300px;margin-left: 100px;" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-success">搜索</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+        <div class="row">
+            <div class="col-sm-2" style="background-color: white;border-radius: 4px;height: 300px;text-align: center;padding-top: 20px;">
+<!--                <div class="btn-group-vertical" role="group">-->
+<!--                    <button type="button" class="btn btn-lg btn-default" style="background: #272c33;border: #272c33; color: #b8b8b8;"><span class="glyphicon glyphicon-dashboard" style="color: white; margin-right: 12px;"></span>按钮按钮1</button>-->
+<!--                    <button type="button" class="btn btn-lg btn-default" style="background: #272c33;border: #272c33; color: #b8b8b8;"><span class="glyphicon glyphicon-globe"  style="color: white;margin-right: 12px;"></span>按钮按钮2</button>-->
+<!--                    <button type="button" class="btn btn-lg btn-default" style="background: #272c33;border: #272c33; color: #b8b8b8;"> ]<span class="glyphicon glyphicon-stats"  style="color: white;margin-right: 12px;"></span>按钮按钮3</button>-->
+<!--                    <button type="button" class="btn btn-lg btn-default" style="background: #272c33;border: #272c33; color: #b8b8b8;"><span class="glyphicon glyphicon-tree-conifer"  style="color: white;margin-right: 12px;"></span> 按钮按钮4</button>-->
+<!--                    <button type="button" class="btn btn-lg btn-default" style="background: #272c33;border: #272c33; color: #b8b8b8;"><span class="glyphicon glyphicon-tree-conifer"  style="color: white;margin-right: 12px;"></span> 按钮按钮5</button>-->
+<!--                    <button type="button" class="btn btn-lg btn-default" style="background: #272c33;border: #272c33; color: #b8b8b8;"><span class="glyphicon glyphicon-tree-conifer"  style="color: white;margin-right: 12px;"></span> 按钮按钮6</button>-->
+<!--                </div>-->
+                <ul class="nav nav-pills nav-stacked" >
+                    <li  recommend-id="11" style="color: white;"><a class="btn" id="recommend-id"  style="color: white; background-color: #009A61;text-align: left;"><i  class="glyphicon glyphicon-thumbs-up"></i>&nbsp;&nbsp;为您推荐</a></li>
+                    <li><a class="btn" new-id="22" style="color: #8c8c8c;text-align: left;"><i style="color: #5cb85c;" class="glyphicon glyphicon-flash"></i>&nbsp;&nbsp;最新内容</a></li>
+                    <li><a class="btn" hot-id="33"  style="color: #8c8c8c;text-align: left;"><i style="color: #c7254e;" class="glyphicon glyphicon-fire"></i>&nbsp;&nbsp;近期热门</a></li>
+                    <li><a class="btn" new-id="22" style="color: #8c8c8c;text-align: left;"><i style="color: #5cb85c;" class="glyphicon glyphicon-flash"></i>&nbsp;&nbsp;最新内容</a></li>
+                    <li><a class="btn" hot-id="33"  style="color: #8c8c8c;text-align: left;"><i style="color: #c7254e;" class="glyphicon glyphicon-fire"></i>&nbsp;&nbsp;近期热门</a></li>
+                    <li><a class="btn" new-id="22" style="color: #8c8c8c;text-align: left;"><i style="color: #5cb85c;" class="glyphicon glyphicon-flash"></i>&nbsp;&nbsp;最新内容</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-7" style="padding-left: 0px;">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- 轮播照片 -->
+                    <div class="carousel-inner" role="listbox" style="border-radius: 5px;">
+                        <div class="item active">
+                            <img style="width: 100%; height: 300px;border-radius: 5px;" src="/imgs/cp1.jpg">
+                        </div>
+                        <div class="item">
+                            <img style="width: 100%; height: 300px;border-radius: 5px;" src="/imgs/01.jpg" >
+                        </div>
+                        <div class="item">
+                            <img style="width: 100%; height: 300px;border-radius: 5px;" src="/imgs/cp1.jpg" >
+                        </div>
+                    </div>
+                    <!-- 上下页按钮 -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">上一页</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">下一页</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-3" style="background: white; height: 300px;border-radius: 4px;">
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-sm-9" style="padding-left: 0px;">
+                <div class="col-sm-12" style="background: white;height: 550px;padding-left: 0px;border-radius: 4px;">
+                        <div class="col-sm-12" style="padding-top: 12px;">
+                            <span style="border-left: 4px solid #4cae4c;font-size: 24px;padding-left: 7px;">最新资讯</span>
+                            <hr>
+                        </div>
+                </div>
+            </div>
+            <div class="col-sm-3" style="height: 550px;background: white;border-radius: 4px;">
+
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+</div>
+
+<div class="jumbotron" style="height: 250px;padding-top:12px;background-color: #617fa5;margin-bottom: 15px;margin-top: 40px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <h1 style="color: white;">Hello, world!</h1>
+                <button class="btn btn-lg btn-success">加入我们</button>
+            </div>
+            <div class="col-sm-6">
+<!--                <div class="boxdiv" style="height: 200px;width: 300px">-->
+<!--                    <a style="height: 100%;width: 300px;cursor: pointer;text-decoration: none;">-->
+<!--                        <div style="width: 300px;background-color: white; height: 136px;overflow: hidden;">-->
+<!--                            <h3>测试测试测试</h3>-->
+<!--                        </div>-->
+<!--                        <div style="height:32px;width: 300px;text-align: center;background-color: white;padding-top: 5px;">-->
+<!--                            <span>测试测试测试</span><br>-->
+<!--                        </div>-->
+<!--                        <div style="height:32px;width: 300px;background-color: white;display:inline-block;padding-top: 5px;">-->
+<!--                            <span>测试测试测试</span>-->
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container" style="margin-top: 40px;padding-left: 40px;">
+    <div class="row">
+        <h3 style="border-bottom: 2px solid #D4D4DE;padding-bottom: 14px;">测试测试测</h3>
+    </div>
+    <div class="row">
+        <div class="col-sm-3" style="text-align: center">
+            <div class="boxdiv" style="height: 200px;width: 236px;">
+                <a style="height: 100%;width: 236px;cursor: pointer;text-decoration: none;">
+                    <div style="width: 236px; height: 136px;overflow: hidden;">
+                        <img src="/imgs/01.jpg" style="width: 236px;height: 136px;">
+                    </div>
+                    <div style="height:32px;width: 236px;text-align: center;background-color: white;padding-top: 5px;">
+                        <span>测试测试测试</span><br>
+                    </div>
+                    <div style="height:32px;width: 236px;background-color: white;display:inline-block;padding-top: 5px;">
+                        <span>测试测试测试</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3" style="text-align: center">
+            <div class="boxdiv" style="height: 200px;width: 236px;">
+                <a style="height: 100%;width: 236px;cursor: pointer;text-decoration: none;">
+                    <div style="width: 236px; height: 136px;overflow: hidden;">
+                        <img src="/imgs/01.jpg" style="width: 236px;height: 136px;">
+                    </div>
+                    <div style="height:32px;width: 236px;text-align: center;background-color: white;padding-top: 5px;">
+                        <span>测试测试测试</span><br>
+                    </div>
+                    <div style="height:32px;width: 236px;background-color: white;display:inline-block;padding-top: 5px;">
+                        <span>测试测试测试</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3" style="text-align: center">
+            <div class="boxdiv" style="height: 200px;width: 236px;">
+                <a style="height: 100%;width: 236px;cursor: pointer;text-decoration: none;">
+                    <div style="width: 236px; height: 136px;overflow: hidden;">
+                        <img src="/imgs/01.jpg" style="width: 236px;height: 136px;">
+                    </div>
+                    <div style="height:32px;width: 236px;text-align: center;background-color: white;padding-top: 5px;">
+                        <span>测试测试测试</span><br>
+                    </div>
+                    <div style="height:32px;width: 236px;background-color: white;display:inline-block;padding-top: 5px;">
+                        <span>测试测试测试</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3" style="text-align: center">
+            <div class="boxdiv" style="height: 200px;width: 236px;">
+                <a style="height: 100%;width: 236px;cursor: pointer;text-decoration: none;">
+                    <div style="width: 236px; height: 136px;overflow: hidden;">
+                        <img src="/imgs/01.jpg" style="width: 236px;height: 136px;">
+                    </div>
+                    <div style="height:32px;width: 236px;text-align: center;background-color: white;padding-top: 5px;">
+                        <span>测试测试测试</span><br>
+                    </div>
+                    <div style="height:32px;width: 236px;background-color: white;display:inline-block;padding-top: 5px;">
+                        <span>测试测试测试</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-sm-3" style="text-align: center;">
+            <div class="boxdiv" style="height: 200px;width: 236px;">
+                <a style="height: 100%;width: 236px;cursor: pointer;text-decoration: none;">
+                    <div style="width: 236px; height: 136px;overflow: hidden;">
+                        <img src="/imgs/01.jpg" style="width: 236px;height: 136px;">
+                    </div>
+                    <div style="height:32px;width: 236px;text-align: center;background-color: white;padding-top: 5px;">
+                        <span>测试测试测试</span><br>
+                    </div>
+                    <div style="height:32px;width: 236px;background-color: white;display:inline-block;padding-top: 5px;">
+                        <span>测试测试测试</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3" style="text-align: center">
+            <div class="boxdiv" style="height: 200px;width: 236px;">
+                <a style="height: 100%;width: 236px;cursor: pointer;text-decoration: none;">
+                    <div style="width: 236px; height: 136px;overflow: hidden;">
+                        <img src="/imgs/01.jpg" style="width: 236px;height: 136px;">
+                    </div>
+                    <div style="height:32px;width: 236px;text-align: center;background-color: white;padding-top: 5px;">
+                        <span>测试测试测试</span><br>
+                    </div>
+                    <div style="height:32px;width: 236px;background-color: white;display:inline-block;padding-top: 5px;">
+                        <span>测试测试测试</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3" style="text-align: center">
+            <div class="boxdiv" style="height: 200px;width: 236px;">
+                <a style="height: 100%;width: 236px;cursor: pointer;text-decoration: none;">
+                    <div style="width: 236px; height: 136px;overflow: hidden;">
+                        <img src="/imgs/01.jpg" style="width: 236px;height: 136px;">
+                    </div>
+                    <div style="height:32px;width: 236px;text-align: center;background-color: white;padding-top: 5px;">
+                        <span>测试测试测试</span><br>
+                    </div>
+                    <div style="height:32px;width: 236px;background-color: white;display:inline-block;padding-top: 5px;">
+                        <span>测试测试测试</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3" style="text-align: center">
+            <div class="boxdiv" style="height: 200px;width: 236px;">
+                <a style="height: 100%;width: 236px;cursor: pointer;text-decoration: none;">
+                    <div style="width: 236px; height: 136px;overflow: hidden;">
+                        <img src="/imgs/01.jpg" style="width: 236px;height: 136px;">
+                    </div>
+                    <div style="height:32px;width: 236px;text-align: center;background-color: white;padding-top: 5px;">
+                        <span>测试测试测试</span><br>
+                    </div>
+                    <div style="height:32px;width: 236px;background-color: white;display:inline-block;padding-top: 5px;">
+                        <span>测试测试测试</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 50px;">
+
+    </div>
+</div>
+
+
+
+
+
+<!--底部-->
+<footer style="color: #999; background-color: #333;padding-top: 25px;padding-bottom: 20px;">
+    <div class="container">
+        <div class="col-sm-6">
+            <h3 style="color: white;margin-top: 30px;">广东绿建联节能服务有限公司</h3>
+            <h5>地址：广东惠州仲恺同方信息港</h5>
+        </div>
+        <div class="col-sm-3">
+            <h4>关于我们</h4>
+            <span>联系我们</span><br>
+            <span>意见反馈</span><br>
+            <span>常见问题</span>
+        </div>
+        <div class="col-sm-3">
+            <h4>关注我们</h4>
+            <span>
+            <a class="btn btn-xs" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='/imgs/ewm.png' style='width:88px;height:88px;'> <h5 style='text-align: center;color: #8c8c8c;'>关注微信号</h5>">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1024 1024" width="32" height="32" t="1583378989829" p-id="2221" version="1.1">
+                    <path fill="#50b674" d="M 352.815 385.396 m -33.5127 0 a 33.5127 33.5127 0 1 0 67.0255 0 a 33.5127 33.5127 0 1 0 -67.0255 0 Z" p-id="2222" /><path fill="#50b674" d="M 502.691 384.465 m -33.5127 0 a 33.5127 33.5127 0 1 0 67.0255 0 a 33.5127 33.5127 0 1 0 -67.0255 0 Z" p-id="2223" /><path fill="#50b674" d="M 576.233 534.342 m -23.2727 0 a 23.2727 23.2727 0 1 0 46.5455 0 a 23.2727 23.2727 0 1 0 -46.5455 0 Z" p-id="2224" /><path fill="#50b674" d="M 694.458 536.204 m -23.2727 0 a 23.2727 23.2727 0 1 0 46.5455 0 a 23.2727 23.2727 0 1 0 -46.5455 0 Z" p-id="2225" /><path fill="#50b674" d="M 512 0 C 229.004 0 0 229.004 0 512 s 229.004 512 512 512 s 512 -229.004 512 -512 S 794.996 0 512 0 Z m -87.5055 630.225 c -26.9964 0 -48.4073 -5.58545 -75.4036 -11.1709 l -75.4036 37.2364 l 21.4109 -64.2327 c -53.9927 -37.2364 -85.6436 -85.6436 -85.6436 -145.222 c 0 -102.4 96.8145 -182.458 215.04 -182.458 c 105.193 0 198.284 64.2327 216.902 150.807 c -6.51636 -0.930909 -13.9636 -0.930909 -20.48 -0.93091 c -102.4 0 -182.458 76.3345 -182.458 170.356 c 0 15.8255 2.79273 30.72 6.51636 44.6836 c -7.44727 0 -13.9636 0.930909 -20.48 0.93091 Z m 314.647 75.4036 l 15.8255 53.9927 l -58.6473 -32.5818 c -21.4109 5.58545 -42.8218 11.1709 -64.2327 11.1709 c -102.4 0 -182.458 -69.8182 -182.458 -155.462 s 80.0582 -155.462 182.458 -155.462 c 96.8145 0 182.458 69.8182 182.458 155.462 c 0 47.4764 -31.6509 90.2982 -75.4036 122.88 Z" p-id="2226" />
+                </svg>
+            </a>
+            </span>
+            <span style="margin-left: 15px;">
+                <a class="btn btn-xs" data-toggle="tooltip" data-placement="top" data-html="true" title="<img src='/imgs/qq.png' style='width:88px;height:88px;'> <h5 style='text-align: center;color: #8c8c8c;'>加我们QQ</h5>">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1024 1024" width="36" height="36" t="1583379258148" p-id="4867" version="1.1">
+                        <path fill="#68a5e1" d="M 512.268 64.4331 c -247.183 0 -447.57 200.381 -447.57 447.564 c 0 247.189 200.386 447.571 447.57 447.571 s 447.57 -200.381 447.57 -447.57 c 0 -247.184 -200.387 -447.565 -447.57 -447.565 Z m 252.859 584.693 c -18.9972 16.288 -43.6687 -53.628 -47.2134 -42.8752 c -8.64262 26.1613 -12.6952 43.6462 -38.1489 72.1276 c -1.35972 1.52149 29.4306 12.647 38.1489 36.396 c 8.34671 22.7569 24.5968 58.812 -81.7255 70.1259 c -62.3894 6.6358 -107.471 -33.2445 -111.965 -32.8565 c -8.32521 0.734126 -4.61875 0 -13.5685 0 c -7.3218 0 -7.80713 0.534468 -14.6968 0 c -1.89931 -0.140272 -22.633 32.8565 -115.364 32.8565 c -71.8788 0 -90.4818 -45.2434 -76.0327 -70.1259 c 14.4644 -24.8773 38.58 -32.1224 35.1766 -36.0664 c -16.7364 -19.3955 -28.2879 -40.1404 -35.1766 -58.8826 c -1.70579 -4.66687 -3.13514 -9.20985 -4.26243 -13.5747 c -2.61193 -10.0085 -22.6279 58.7639 -44.111 42.8752 c -21.4832 -15.8835 -19.5675 -56.3096 -5.65901 -95.0033 c 14.0334 -39.007 49.3769 -76.562 49.7711 -84.8545 c 1.41296 -30.8497 -3.04401 -35.9752 0 -44.0783 c 6.78017 -18.1494 15.0347 -11.19 15.0347 -20.6098 c 0 -118.645 88.1729 -214.83 196.933 -214.83 c 108.755 0 196.929 96.1848 196.929 214.83 c 0 4.55424 11.8156 0 17.4747 20.6098 c 1.16518 4.25629 1.96893 20.6845 0.58771 44.0783 c -0.658358 11.2382 29.9548 24.9142 45.7779 84.8545 c 15.8456 59.9454 0 88.2159 -7.90951 95.0033 Z" p-id="4868" />
+                    </svg>
+                </a>
+            </span>
+            <span style="margin-left: 15px;">
+                <a  class="btn btn-xs">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1024 1024" width="32" height="32" t="1583379206847" p-id="4057" version="1.1">
+                        <path fill="#e71f19" d="M 851.4 590.193 c -22.196 -66.233 -90.385 -90.422 -105.912 -91.863 c -15.523 -1.442 -29.593 -9.94 -19.295 -27.505 c 10.302 -17.566 29.304 -68.684 -7.248 -104.681 c -36.564 -36.14 -116.512 -22.462 -173.094 0.866 c -56.434 23.327 -53.39 7.055 -51.65 -8.925 c 1.89 -16.848 32.355 -111.02 -60.791 -122.395 C 311.395 220.86 154.85 370.754 99.572 457.15 C 16 587.607 29.208 675.873 29.208 675.873 h 0.58 c 10.009 121.819 190.787 218.869 412.328 218.869 c 190.5 0 350.961 -71.853 398.402 -169.478 c 0 0 0.143 -0.433 0.575 -1.156 c 4.938 -10.506 8.71 -21.168 11.035 -32.254 c 6.668 -26.205 11.755 -64.215 -0.728 -101.66 Z m -436.7 251.27 c -157.71 0 -285.674 -84.095 -285.674 -187.768 c 0 -103.671 127.82 -187.76 285.674 -187.76 c 157.705 0 285.673 84.089 285.673 187.76 c 0 103.815 -127.968 187.768 -285.673 187.768 Z" p-id="4058" /><path fill="#f5aa15" d="M 803.096 425.327 c 2.896 1.298 5.945 1.869 8.994 1.869 c 8.993 0 17.7 -5.328 21.323 -14.112 c 5.95 -13.964 8.993 -28.793 8.993 -44.205 c 0 -62.488 -51.208 -113.321 -114.181 -113.321 c -15.379 0 -30.32 3.022 -44.396 8.926 c -11.755 4.896 -17.263 18.432 -12.335 30.24 c 4.933 11.662 18.572 17.134 30.465 12.238 c 8.419 -3.46 17.268 -5.33 26.41 -5.33 c 37.431 0 67.752 30.241 67.752 67.247 c 0 9.068 -1.735 17.857 -5.369 26.202 a 22.832 22.832 0 0 0 12.335 30.236 l 0.01 0.01 Z" p-id="4059" /><path fill="#f5aa15" d="M 726.922 114.157 c -25.969 0 -51.65 3.744 -76.315 10.942 c -18.423 5.472 -28.868 24.622 -23.5 42.91 c 5.509 18.29 24.804 28.657 43.237 23.329 a 201.888 201.888 0 0 1 56.578 -8.064 c 109.253 0 198.189 88.271 198.189 196.696 c 0 19.436 -2.905 38.729 -8.419 57.16 c -5.508 18.289 4.79 37.588 23.212 43.053 c 3.342 1.014 6.817 1.442 10.159 1.442 c 14.943 0 28.725 -9.648 33.37 -24.48 c 7.547 -24.906 11.462 -50.826 11.462 -77.175 c -0.143 -146.588 -120.278 -265.813 -267.973 -265.813 Z" p-id="4060" /><path fill="#040000" d="M 388.294 534.47 c -84.151 0 -152.34 59.178 -152.34 132.334 c 0 73.141 68.189 132.328 152.34 132.328 c 84.148 0 152.337 -59.182 152.337 -132.328 c 0 -73.15 -68.19 -132.334 -152.337 -132.334 Z M 338.53 752.763 c -29.454 0 -53.39 -23.755 -53.39 -52.987 c 0 -29.228 23.941 -52.989 53.39 -52.989 c 29.453 0 53.39 23.76 53.39 52.989 c 0 29.227 -23.937 52.987 -53.39 52.987 Z m 99.82 -95.465 c -6.382 11.086 -19.296 15.696 -28.726 10.219 c -9.43 -5.323 -11.75 -18.717 -5.37 -29.803 c 6.386 -11.09 19.297 -15.7 28.725 -10.224 c 9.43 5.472 11.755 18.864 5.37 29.808 Z" p-id="4061" />
+                    </svg>
+                </a>
+            </span>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

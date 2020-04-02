@@ -1,0 +1,52 @@
+.info-ele{
+	
+	margin:8%;
+	text-align: center;
+	color: #FFFFFF;
+}
+.info-water{
+	
+	margin:8%;
+	text-align: center;
+	color: #FFFFFF;
+}
+.panel-elec{
+	background-color:  #47475c;
+	
+}
+.panel-water{
+	background-color:  #337ab7;
+	
+}
+.info-gas{
+	
+	margin:8%;
+	text-align: center;
+	color: #FFFFFF;
+}
+.panel-gas{
+	background-color:  #3c763d;
+	
+}
+.info-iol{
+	
+	margin:8%;
+	text-align: center;
+	color: #FFFFFF;
+}
+.panel-iol{
+	background-color: #f0ad4e;
+	
+}
+.multi span{
+	font-size:20px;
+}
+.multi div{
+	background-color:#f0ad4e;
+	float:right;
+	width:900px;
+	height: 30px;
+	margin-left: 50px;
+	padding-left:15px;
+	padding-left:10px;
+}

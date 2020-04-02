@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<!--在这里导入thymeleaf-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>Title</title>
+			<!--树状结构-->
+			<link rel="stylesheet" href="css/zTreeStyle.css" type="text/css">
+			
+			<script type="application/javascript" src="js/jquery.min.js"></script>
+			<script type="application/javascript" src="js/jquery.ztree.core.js"></script>
+
+
+			<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+			<link rel="stylesheet" href="css/demo1.css" />
+			<link rel="stylesheet" href="css/energy_analyze.css" />
+		
+			<script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+			<script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+			<script src="laydate/laydate.js"></script>
+
+			<style type="text/css">
+				.panel-group a {
+					font-size: 14px;
+					font-weight: 600;
+					color: #eeeaea;
+					te xt-decoration: none;
+				}
+
+				.panel-group a:hover {
+					text-decoration: none;
+				}
+
+				.panel-group {
+					background-color: #47475c;
+					width: 100%;
+					height: 700px;
+					margin-top: -15px;
+					margin-bottom: 0px;
+				}
+
+				.panel-group .panel {
+					background-color: rgba(91, 107, 122, 0.95);
+					border: none;
+				}
+
+				.panel-heading {
+					border-top-left-radius: 0px;
+					border-top-right-radius: 0px;
+				}
+
+				.panel-default>.panel-heading {
+					border: none;
+					color: #eeeaea;
+					background-color: #47475c;
+				}
+
+				.panel-default>.panel-heading>span {
+					font-size: 14px;
+					font-weight: 600;
+				}
+
+				.panel-default>.panel-heading:active,
+				.panel-default>.panel-heading:hover {
+					background-color: rgba(91, 107, 122, 0.95);
+					color: #90ef7f;
+				}
+
+				.panel-default>.panel-heading>a:hover {
+					text-decoration: none;
+				}
+
+				.panel-group .panel-heading+.panel-collapse>.panel-body {
+					border: none;
+				}
+
+				.panel-body {
+					padding: 0px;
+				}
+
+				.panel-group .nav>li {
+					padding: 1px 0px 0px 0px;
+				}
+
+				.panel-group .nav>li>a {
+					text-decoration: none;
+					padding: 10px 10px 10px 35px;
+				}
+
+				.panel-group .nav>li>a:hover,
+				.nav>li>a:focus {
+					background-color: rgba(91, 107, 122, 0.95);
+				}
+				a{
+					text-decoration: none!important;
+				}
+			</style>
+			<SCRIPT type="text/javascript" >
+			<!--
+				var zTree;
+				var demoIframe;
+			
+				var setting = {
+					view: {
+						dblClickExpand: false,
+						showLine: true,
+						selectedMulti: false
+					},
+					data: {
+						simpleData: {
+							enable:true,
+							idKey: "id",
+							pIdKey: "pId",
+							rootPId: ""
+						}
+					},
+					callback: {
+						beforeClick: function(treeId, treeNode) {
+							var zTree = $.fn.zTree.getZTreeObj("tree");
+							if (treeNode.isParent) {
+								zTree.expandNode(treeNode);
+								return false;
+							} else {
+								demoIframe.attr("src",treeNode.file + ".html");
+								return true;
+							}
+						}
+					}
+				};
+			
+				var zNodes =[
+					{id:1, pId:0, name:"5-空调主机A", open:true},
+					{id:101, pId:1, name:"运行状态", file:"statics_chart"},
+					{id:102, pId:1, name:"故障状态", file:"statics_chart2"},
+					{id:103, pId:1, name:"不显示 连接线", file:"core/noline"},
+					{id:104, pId:1, name:"不显示 节点 图标", file:"core/noicon"},
+					{id:105, pId:1, name:"自定义图标 --  icon 属性", file:"core/custom_icon"},
+					{id:106, pId:1, name:"自定义图标 --  iconSkin 属性", file:"core/custom_iconSkin"},
+					{id:107, pId:1, name:"自定义字体", file:"core/custom_font"},
+					{id:115, pId:1, name:"超链接演示", file:"core/url"},
+					{id:108, pId:1, name:"异步加载 节点数据", file:"core/async"},
+					{id:109, pId:1, name:"用 zTree 方法 异步加载 节点数据", file:"core/async_fun"},
+					{id:110, pId:1, name:"用 zTree 方法 更新 节点数据", file:"core/update_fun"},
+					{id:111, pId:1, name:"单击 节点 控制", file:"core/click"},
+					{id:112, pId:1, name:"展开 / 折叠 父节点 控制", file:"core/expand"},
+					{id:113, pId:1, name:"根据 参数 查找 节点", file:"core/searchNodes"},
+					{id:114, pId:1, name:"其他 鼠标 事件监听", file:"core/otherMouse"},
+			
+					{id:2, pId:0, name:"5-空调主机B", open:false},
+					{id:201, pId:2, name:"Checkbox 勾选操作", file:"excheck/checkbox"},
+					{id:206, pId:2, name:"Checkbox nocheck 演示", file:"excheck/checkbox_nocheck"},
+					{id:207, pId:2, name:"Checkbox chkDisabled 演示", file:"excheck/checkbox_chkDisabled"},
+					{id:208, pId:2, name:"Checkbox halfCheck 演示", file:"excheck/checkbox_halfCheck"},
+					{id:202, pId:2, name:"Checkbox 勾选统计", file:"excheck/checkbox_count"},
+					{id:203, pId:2, name:"用 zTree 方法 勾选 Checkbox", file:"excheck/checkbox_fun"},
+					{id:204, pId:2, name:"Radio 勾选操作", file:"excheck/radio"},
+					{id:209, pId:2, name:"Radio nocheck 演示", file:"excheck/radio_nocheck"},
+					{id:210, pId:2, name:"Radio chkDisabled 演示", file:"excheck/radio_chkDisabled"},
+					{id:211, pId:2, name:"Radio halfCheck 演示", file:"excheck/radio_halfCheck"},
+					{id:205, pId:2, name:"用 zTree 方法 勾选 Radio", file:"excheck/radio_fun"},
+			
+					{id:3, pId:0, name:"50-空调主机A(武冷)", open:false},
+					{id:301, pId:3, name:"拖拽 节点 基本控制", file:"exedit/drag"},
+					{id:302, pId:3, name:"拖拽 节点 高级控制", file:"exedit/drag_super"},
+					{id:303, pId:3, name:"用 zTree 方法 移动 / 复制 节点", file:"exedit/drag_fun"},
+					{id:304, pId:3, name:"基本 增 / 删 / 改 节点", file:"exedit/edit"},
+					{id:305, pId:3, name:"高级 增 / 删 / 改 节点", file:"exedit/edit_super"},
+					{id:306, pId:3, name:"用 zTree 方法 增 / 删 / 改 节点", file:"exedit/edit_fun"},
+					{id:307, pId:3, name:"异步加载 & 编辑功能 共存", file:"exedit/async_edit"},
+					{id:308, pId:3, name:"多棵树之间 的 数据交互", file:"exedit/multiTree"},
+			
+					{id:4, pId:0, name:"51-主机B", open:false},
+					{id:401, pId:4, name:"一次性加载大数据量", file:"bigdata/common"},
+					{id:402, pId:4, name:"分批异步加载大数据量", file:"bigdata/diy_async"},
+					{id:403, pId:4, name:"分批异步加载大数据量", file:"bigdata/page"},
+			
+					{id:5, pId:0, name:"7-冷冻泵A", open:false},
+					{id:501, pId:5, name:"冻结根节点", file:"super/oneroot"},
+					{id:502, pId:5, name:"单击展开/折叠节点", file:"super/oneclick"},
+					{id:503, pId:5, name:"保持展开单一路径", file:"super/singlepath"},
+					{id:504, pId:5, name:"添加 自定义控件", file:"super/diydom"},
+					{id:505, pId:5, name:"checkbox / radio 共存", file:"super/checkbox_radio"},
+					{id:506, pId:5, name:"左侧菜单", file:"super/left_menu"},
+					{id:513, pId:5, name:"OutLook 风格", file:"super/left_menuForOutLook"},
+					{id:515, pId:5, name:"Awesome 风格", file:"super/awesome"},
+					{id:514, pId:5, name:"Metro 风格", file:"super/metro"},
+					{id:507, pId:5, name:"下拉菜单", file:"super/select_menu"},
+					{id:509, pId:5, name:"带 checkbox 的多选下拉菜单", file:"super/select_menu_checkbox"},
+					{id:510, pId:5, name:"带 radio 的单选下拉菜单", file:"super/select_menu_radio"},
+					{id:508, pId:5, name:"右键菜单 的 实现", file:"super/rightClickMenu"},
+					{id:511, pId:5, name:"与其他 DOM 拖拽互动", file:"super/dragWithOther"},
+					{id:512, pId:5, name:"异步加载模式下全部展开", file:"super/asyncForAll"},
+			
+					{id:6, pId:0, name:"8-冷冻泵B", open:false},
+					{id:601, pId:6, name:"隐藏普通节点", file:"exhide/common"},
+					{id:602, pId:6, name:"配合 checkbox 的隐藏", file:"exhide/checkbox"},
+					{id:603, pId:6, name:"配合 radio 的隐藏", file:"exhide/radio"}
+				];
+			
+				$(document).ready(function(){
+					var t = $("#tree");
+					t = $.fn.zTree.init(t, setting, zNodes);
+					demoIframe = $("#testIframe");
+					demoIframe.bind("load", loadReady);
+					var zTree = $.fn.zTree.getZTreeObj("tree");
+					zTree.selectNode(zTree.getNodeByParam("id", 101));
+			
+				});
+			
+				function loadReady() {
+					var bodyH = demoIframe.contents().find("body").get(0).scrollHeight,
+					htmlH = demoIframe.contents().find("html").get(0).scrollHeight,
+					maxH = Math.max(bodyH, htmlH), minH = Math.min(bodyH, htmlH),
+					h = demoIframe.height() >= maxH ? minH:maxH ;
+					if (h < 530) h = 530;
+					demoIframe.height(h);
+				}
+			
+			//-->
+			</SCRIPT>
+		</head>
+		<body>
+			<nav class="navbar navbar-default" style="padding-right: 0px;">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">绿建联中央空调</a>
+					</div>
+
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#" id="warn">
+									<span class="glyphicon glyphicon-bell" style="font-size: 20px;z-index: 1"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" id="msg">
+									<span class="  glyphicon glyphicon-envelope" style="font-size: 20px;"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="#" id="avatar_a">
+									<img class="avatar_img" src="/imgs/01.jpg">
+								</a>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">空山新雨
+									<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">个人信息</a></li>
+									<li><a href="#">修改密码</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#">退出登录</a></li>
+								</ul>
+							</li>
+						</ul>
+
+						<ul class="nav navbar-nav navbar-right" style="margin-right: 100px;">
+							<li><a href="index_camera.html">实时监控 <span class="sr-only">(current)</span></a></li>
+							
+							<li class="">
+								<a href="history_line.html">数据查询</a>
+							</li>
+							<li class="active"><a href="device_artifical_check.html">设备管理</a>
+							</li>
+							<li class="">
+								<a href="energy_table.html">能耗管理</a>
+							</li>
+							<li class="">
+								<a href="alarm_history_record.html">告警管理</a>
+							</li>
+							
+							<li class="">
+								<a href="working_analyze.html">运营分析</a>
+							
+							</li>
+							<li class="">
+								<a href="system_device.html">系统管理</a>
+							
+							</li>
+							<li><a href="#">监控画面</a></li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
+
+			<div class="row" style="position: relative;margin-top: 15px;margin-right: 0px;">
+
+				<div class="col-sm-2" style="padding-right: 0px;">
+					<div class="panel-group" id="panelContainer">
+						<div class="panel panel-default">
+							<div id="header1" class="panel-heading" data-toggle="collapse" data-target="#sub3" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="history_line.html">数据查询</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+							<div id="sub3" class="collapse panel-collapse">
+								<div class="panel-body">
+									<ul class="nav">
+										<li>
+											<a href="history_line.html">历史曲线</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-sm-10">
+					<div class="row">
+						<div class="col-sm-12" style="padding-right: 0px;">
+							<form class="form-inline">
+								<div class="form-group">
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> 日
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 周
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 月
+									</label>
+								</div>
+								<div class="form-group form-group has-success" style="margin-left: 12px;">
+									<div class="input-group" style="margin-top: -3px;">
+										<input type="text" class="form-control" id="startTime" placeholder="2020-3-17" style="width: 130px;cursor: pointer;">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+									</div>
+								</div>
+								<div class="form-group has-success" style="margin-left: 12px;">
+									
+									<button class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-search"></span>&nbsp;查询</button>
+									<button class="btn btn-sm btn-warning" ><span class="glyphicon glyphicon-log-out"></span>&nbsp;导出</button>
+								</div>
+							</form>
+						</div>
+
+					</div>
+					<div class="col-sm-12" style="margin-top: 2%;">
+						<TABLE border=0 height=900px align=left>
+							<TR>
+								<TD width="20%" align=left valign=top style="BORDER-RIGHT: #999999 1px dashed;">
+									<ul id="tree" class="ztree" style="width:260px; height: 600px;overflow:auto;"></ul>
+								</TD>
+								<TD width="80%" align=left valign=top><IFRAME ID="testIframe" Name="testIframe" FRAMEBORDER=0 SCROLLING=AUTO width=100%  height=600px SRC="statics_chart.html">
+								
+								
+								</TD>
+							</TR>
+						</TABLE>
+					</div>
+
+				</div>
+			</div>
+
+
+
+
+
+
+			<script>
+		
+				
+				//执行一个laydate实例
+				laydate.render({
+					elem: '#startTime' //指定元素
+				});
+				
+				
+			
+
+			</script>
+
+
+
+
+
+
+		</body>
+	</html>

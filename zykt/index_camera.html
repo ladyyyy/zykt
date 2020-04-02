@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--在这里导入thymeleaf-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/demo1.css"/>
+	<link rel="stylesheet" href="css/index.css"/>
+    <script type="application/javascript" src="js/jquery.min.js"></script>
+    <script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+
+   
+
+</head>
+<body>
+<nav class="navbar navbar-default" style="padding-right: 0px;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">绿建联中央空调</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" id="warn">
+                        <span class="glyphicon glyphicon-bell" style="font-size: 20px;z-index: 1"></span>
+                        <span class="badge">14</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="msg">
+                        <span class="  glyphicon glyphicon-envelope" style="font-size: 20px;"></span>
+                        <span class="badge">14</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" id="avatar_a">
+                       <img class="avatar_img" src="/imgs/01.jpg">
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">空山新雨 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">个人信息</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 100px;">
+            	<li><a href="index_camera.html">实时监控 <span class="sr-only">(current)</span></a></li>
+            	
+            	<li class="">
+            		<a href="history_line.html">数据查询</a>
+            	</li>
+            	<li class="active"><a href="device_artifical_check.html">设备管理</a>
+            	</li>
+            	<li class="">
+            		<a href="energy_table.html">能耗管理</a>
+            	</li>
+            	<li class="">
+            		<a href="alarm_history_record.html">告警管理</a>
+            	</li>
+            	
+            	<li class="">
+            		<a href="working_analyze.html">运营分析</a>
+            	
+            	</li>
+            	<li class="">
+            		<a href="system_device.html">系统管理</a>
+            	
+            	</li>
+            	<li><a href="#">监控画面</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="row" style="position: relative;margin-top: 15px;margin-right: 0px;">
+    <div class="col-sm-2" style="padding-right: 0px;">
+        <div class="panel-group" id="panelContainer">
+            <div class="panel panel-default">
+                <div id="header1" class="panel-heading" data-toggle="collapse" data-target="#sub1" data-parent="#panelContainer">
+                    <i class="glyphicon glyphicon-asterisk"></i>
+                    <a href="index_camera.html">中央空调</a>
+                    <span class="glyphicon glyphicon-triangle-right pull-right"></span>
+                </div>
+                
+            </div>
+           
+    
+        </div>
+    </div>
+    <div class="col-sm-10">
+        <div class="alert alert-success" style="margin-bottom: 0px;overflow: hidden">
+            <span style="font-size: 20px;"><i class="glyphicon glyphicon-check"></i> 安全运行天数：16天
+                <i class="glyphicon glyphicon-scale" style="margin-left: 80px;"></i> 设备总数：26
+                <i class="glyphicon glyphicon-play" style="margin-left: 80px;"></i> 运行：15
+                <i class="glyphicon glyphicon-pause" style="margin-left: 80px;"></i>停止：11
+                <button class="btn btn-sm btn-danger" style="float: right" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    警告<span class="badge" style="margin-bottom: 0px;margin-left: 5px;">4</span>
+                </button>
+            </span>
+        </div>
+        <div class="collapse" id="collapseExample">
+            <div class="well" style="background-color: #f2dede;color: #a94442;border-color: #dca7a7">
+                告警信息！！！
+            </div>
+        </div>
+        <div style="color: #787d88;border: 1px solid #e5e5e5;border-radius:4px;border-left: 6px solid #1b809e;margin-top: 30px;padding-left: 20px;">
+            <h3>500T空调机房(12)</h3>
+            <h5>冷冻水温度 9.8℃ 冷冻水供水压力 0.41Mpa 冷却水进水压力 0.33Mpa 补水箱水位 0.77m 瞬时流量,空调累计流量 403.9m³/h /2982452m³ </h5>
+            <h5>冷冻水供水总管温度 10.2℃ /11℃ 冷却进出水总管温度 22.4℃ /23.6℃ 空调房温湿度 24.5℃ /60.9%RH </h5>
+        </div>
+        <div style="margin-top: 20px;">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#">冷水机</a></li>
+                <li role="presentation"><a href="#">冷冻泵</a></li>
+                <li role="presentation"><a href="#">冷却泵</a></li>
+                <li role="presentation"><a href="#">冷却塔</a></li>
+                <div class="btn-group" role="group" style="width: 100px;float: right;margin-right: 60px;">
+                    <button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        运行状态
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" style="overflow-y: scroll;height: 200px;min-width: 80px;">
+                        <li><a href="#">通讯状态</a></li>
+                        <li><a href="#">功率</a></li>
+                        <li><a href="#">频率</a></li>
+                        <li><a href="#">A相电流</a></li>
+                        <li><a href="#">B相电流</a></li>
+                        <li><a href="#">C相电流</a></li>
+                        <li><a href="#">Uab</a></li>
+                        <li><a href="#">Ubc</a></li>
+                        <li><a href="#">Uca</a></li>
+                        <li><a href="#">有功电度</a></li>
+                        <li><a href="#">主机冷冻回水温度</a></li>
+                        <li><a href="#">主机冷却出水温度</a></li>
+                        <li><a href="#">主机冷冻供水温度</a></li>
+                        <li><a href="#">主机冷却进水温度</a></li>
+                        <li><a href="#">用电量（本月）</a></li>
+                    </ul>
+                </div>
+                <div class="btn-group" role="group" style="float: right;margin-right: 10px;">
+                    <button type="button" class="btn btn-sm btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        空调主机A
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" style="min-width: 80px;">
+                        <li><a href="#">空调主机B</a></li>
+                        <li><a href="#">空调主机C</a></li>
+                    </ul>
+                </div>
+            </ul>
+        </div>
+        <div class="container2" id="container2" style="width: 900px;height: 350px;margin-top: 30px;margin-left: 120px;"></div>
+    </div>
+</div>
+
+
+
+
+<script>
+    $(function() {
+        $(".panel-heading").on("click", function(e) {
+            var idLength = e.currentTarget.id.length;
+            var index = e.currentTarget.id.substr(idLength - 1, idLength);
+            $("#sub" + index).on('hidden.bs.collapse', function() {
+                $(e.currentTarget).find("span").removeClass("glyphicon glyphicon-triangle-bottom");
+                $(e.currentTarget).find("span").addClass("glyphicon glyphicon-triangle-right");
+            })
+            $("#sub" + index).on('shown.bs.collapse', function() {
+                $(e.currentTarget).find("span").removeClass("glyphicon glyphicon-triangle-right");
+                $(e.currentTarget).find("span").addClass("glyphicon glyphicon-triangle-bottom");
+            })				})
+        $(".panel-body > .nav > li > a").on("click", function(e) {
+            alert(e.currentTarget.textContent);
+        });
+    });
+
+
+
+
+
+
+    var chart2 = Highcharts.chart('container2', {
+        title: {
+            text: '空调主机A'
+        },
+        subtitle: {
+            text: ''
+        },
+        yAxis: {
+            title: {
+                text: '运行状态单位'
+            }
+        },
+        xAxis: {
+            categories: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '24:00']
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        //取消水印连接
+        credits:{
+            enabled:false
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                }
+            }
+        },
+        series: [{
+            name: '运行状态',
+            data: [0, 0, 0, 0, 0, 0, 0, 0,1,0.5,1,0.5,0.25,0.5,1,1,0.5,1,0,0,0, 0, 0, 0,0]
+        }],
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+</script>
+
+</body>
+</html>

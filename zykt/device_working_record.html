@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<!DOCTYPE html>
+<!--在这里导入thymeleaf-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>Title</title>
+
+			<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+			<link rel="stylesheet" href="css/demo1.css" />
+			<link rel="stylesheet" href="css/index.css">
+			<link rel="stylesheet" href="css/device_working_record.css" />
+			<script type="application/javascript" src="js/jquery.min.js"></script>
+			<script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+			<script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+			<script src="laydate/laydate.js"></script>
+
+		
+
+		</head>
+		<body>
+			<nav class="navbar navbar-default" style="padding-right: 0px;">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">绿建联中央空调</a>
+					</div>
+
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#" id="warn">
+									<span class="glyphicon glyphicon-bell" style="font-size: 20px;z-index: 1"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" id="msg">
+									<span class="  glyphicon glyphicon-envelope" style="font-size: 20px;"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="#" id="avatar_a">
+									<img class="avatar_img" src="/imgs/01.jpg">
+								</a>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">空山新雨
+									<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">个人信息</a></li>
+									<li><a href="#">修改密码</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#">退出登录</a></li>
+								</ul>
+							</li>
+						</ul>
+
+				<ul class="nav navbar-nav navbar-right" style="margin-right: 100px;">
+					<li><a href="index_camera.html">实时监控 <span class="sr-only">(current)</span></a></li>
+					
+					<li class="">
+						<a href="history_line.html">数据查询</a>
+					</li>
+					<li class="active"><a href="device_artifical_check.html">设备管理</a>
+					</li>
+					<li class="">
+						<a href="energy_table.html">能耗管理</a>
+					</li>
+					<li class="">
+						<a href="alarm_history_record.html">告警管理</a>
+					</li>
+					
+					<li class="">
+						<a href="working_analyze.html">运营分析</a>
+					
+					</li>
+					<li class="">
+						<a href="system_device.html">系统管理</a>
+					
+					</li>
+					<li><a href="#">监控画面</a></li>
+				</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
+
+			<div class="row" style="position: relative;margin-top: 15px;margin-right: 0px;">
+				<div class="col-sm-2" style="padding-right: 0px;">
+					<div class="panel-group" id="panelContainer">
+						<div class="panel panel-default">
+							<div id="header1" class="panel-heading" data-toggle="collapse" data-target="#sub1" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="device_count.html">设备管理</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+							<div id="sub1" class="collapse panel-collapse">
+								<div class="panel-body">
+									<ul class="nav">
+										<li>
+											<a href="device_count.html">设备台账</a>
+										</li>
+										<li>
+											<a href="device_total.html">设备统计</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div id="header2" class="panel-heading" data-toggle="collapse" data-target="#sub2" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="device_working_check.html">运行管理</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+							<div id="sub2" class="collapse panel-collapse">
+								<div class="panel-body">
+									<ul class="nav">
+										<li>
+											<a href="device_working_check.html">运行抄表</a>
+										</li>
+										<li>
+											<a href="device_working_record.html">运行记录</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div id="header3" class="panel-heading" data-toggle="collapse" data-target="#sub3" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="device_artifical_check.html">巡检管理</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+							<div id="sub3" class="collapse panel-collapse">
+								<div class="panel-body">
+									<ul class="nav">
+										<li>
+											<a href="device_artifical_check.html">人工巡检</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+
+
+					</div>
+				</div>
+				<div class="col-sm-10">
+					<div class="col-sm-12" style="padding-right: 0px;">
+						<form class="form-inline">
+							<div class="form-group">
+								<label class="radio-inline">
+									<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> 日
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 周
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 月
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 年
+								</label>
+							</div>
+							<div class="form-group has-success" style="margin-left: 12px;">
+								<div class="input-group" style="margin-top: -3px;">
+									<input type="text" class="form-control" id="startTime" placeholder="2020-3-17" style="width: 130px;cursor: pointer;">
+									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+
+							</div>
+							<div class="form-group has-success" style="">
+								<div class="input-group"><span>能源:</span></div>
+								<div class="input-group" style="margin-top: -3px;">
+									<button type="button" class="btn  btn-sm btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+									 aria-expanded="false">
+										500T空调机房<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" style="overflow-y: scroll;height: auto;width:50px;">
+										<li><a>301-302空调机房</a></li>
+
+
+									</ul>
+
+
+
+								</div>
+							</div>
+						</form>
+
+					</div>
+
+
+
+					<div class="col-sm-12 infobox-container ">
+
+
+						<div class="infobox infoxbox-summrize">
+							<div class="infobox-icon">
+								<i class="icon-safe">
+									<img src="./imgs/work_summrize.png"></img>
+								</i>
+							</div>
+							<div class="infobox-data">
+								<span class="infobox-data-number">
+									运行统计
+								</span>
+								<div class="infobox-content">
+									空调运行情况:主机B运行
+								</div>
+								<div class="infobox-content">
+									运行时长:9H
+								</div>
+								<div class="infobox-content">
+									冷水机运行情况:共有一台冷水机在运行
+								</div>
+
+							</div>
+
+
+						</div>
+						<div class="infobox infoxbox-notice">
+							<div class="infobox-icon">
+								<i class="icon-safe">
+									<img src="./imgs/work_notice.png"></img>
+								</i>
+							</div>
+							<div class="infobox-data">
+								<span class="infobox-data-number">
+									安全隐患
+								</span>
+								<div class="infobox-content">
+									警告总数:0
+								</div>
+								<div class="infobox-content">
+									严重警告:冷冻水补水箱液位低水位告警
+								</div>
+								<div class="infobox-content">
+									一般警告:冷冻水供水压力压力低压告警
+								</div>
+
+
+							</div>
+
+						</div>
+						<div class="infobox infoxbox-low">
+							<div class="infobox-icon">
+								<i class="icon-safe">
+									<img src="./imgs/work_low.png"></img>
+								</i>
+							</div>
+							<div class="infobox-data">
+								<span class="infobox-data-number">
+									低能耗事件
+								</span>
+								<div class="infobox-content">
+									事件总数:0
+								</div>
+
+
+
+							</div>
+
+						</div>
+
+
+					</div>
+
+					<div class="col-sm-12 infobox-container" style="margin-left: -1%;">
+						<div class="infochart" id="container1" style="height: 400px">
+
+						</div>
+						<div class="infochart chart2" id="container2" style="height: 400px">
+						</div>
+					</div>
+					<div class="col-sm-12 infobox-container">
+						<div class="input-group" style="margin-left: 1%;">
+							<button type="button" class="btn  btn-sm btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								冷却泵A<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" style="overflow-y: scroll;height: auto;width:50px;">
+								<li><a>冷却泵B</a></li>
+								<li><a>冷却泵C</a></li>
+								<li><a>冷冻泵A</a></li>
+								<li><a>冷冻泵B</a></li>
+								<li><a>冷冻泵C</a></li>
+							</ul>
+
+
+						</div>
+						<div id="container3" style="height:400px;">
+						</div>
+					</div>
+					<div class="col-sm-12 infobox-container">
+						<div class="input-group" style="margin-left: 1%;">
+							<button type="button" class="btn  btn-sm btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								冷却塔A<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" style="overflow-y: scroll;height: auto;width:50px;">
+								<li><a>冷却塔B</a></li>
+								<li><a>冷却塔C</a></li>
+
+							</ul>
+
+
+						</div>
+						<div id="container4" style="height:400px;">
+						</div>
+					</div>
+
+
+
+
+
+					<script>
+						//执行一个laydate实例
+						laydate.render({
+							elem: '#startTime' //指定元素
+						});
+
+						var chart1 = Highcharts.chart('container1', {
+							chart: {
+								type: 'spline'
+							},
+							title: {
+								text: '环境参数'
+							},
+							subtitle: {
+								text: '2020-03-17--2020-03-18'
+							},
+							xAxis: {
+								categories: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00',
+									'18:00', '21:00', '00:00'
+								]
+							},
+							yAxis: {
+								title: {
+									text: '温差'
+								},
+								labels: {
+									formatter: function() {
+										return this.value + '°';
+									}
+								}
+							},
+							tooltip: {
+								crosshairs: true,
+								shared: true
+							},
+							plotOptions: {
+								spline: {
+									marker: {
+										radius: 4,
+										lineColor: '#666666',
+										lineWidth: 1
+									}
+								}
+							},
+							series: [{
+								name: '冷却进水温差',
+								data: [10.0, 12, 11, 14, 27, {
+									y: 26.5,
+								}, 27, 28, 26]
+							}, {
+								name: '冷冻供回水温差',
+								data: [7.0, 6.9, 9.5, 14.5, 25.2, {
+									y: 26.5,
+								}, 23.3, 18.3, 13.9]
+							}]
+						});
+						var chart2 = Highcharts.chart('container2', {
+							chart: {
+								type: 'spline'
+							},
+							title: {
+								text: '系统参数'
+							},
+							subtitle: {
+								text: '2020-03-17--2020-03-18'
+							},
+							xAxis: {
+								categories: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00',
+									'18:00', '21:00', '00:00'
+								]
+							},
+							yAxis: {
+								title: {
+									text: '温差'
+								},
+								labels: {
+									formatter: function() {
+										return this.value + '°';
+									}
+								}
+							},
+							tooltip: {
+								crosshairs: true,
+								shared: true
+							},
+							plotOptions: {
+								spline: {
+									marker: {
+										radius: 4,
+										lineColor: '#666666',
+										lineWidth: 1
+									}
+								}
+							},
+							series: [{
+								name: '冷冻水回水总管压力',
+								data: [10.0, 12, 11, 14, 27, {
+									y: 26.5,
+								}, 27, 28, 26]
+							}, {
+								name: '冷冻水供水总管压力',
+								data: [7.0, 6.9, 9.5, 14.5, 25.2, {
+									y: 26.5,
+								}, 23.3, 18.3, 13.9]
+							}, {
+								name: '冷冻水供水总管压力',
+								data: [7.0, 6.9, 9.5, 14.5, 25.2, {
+									y: 26.5,
+								}, 23.3, 18.3, 13.9]
+							}, {
+								name: '冷冻水供水总管压力',
+								data: [7.0, 6.9, 9.5, 14.5, 25.2, {
+									y: 26.5,
+								}, 23.3, 18.3, 13.9]
+							}, {
+								name: '冷冻水供水总管压力',
+								data: [7.0, 6.9, 9.5, 14.5, 25.2, {
+									y: 26.5,
+								}, 23.3, 18.3, 13.9]
+							}, {
+								name: '冷冻水供水总管压力',
+								data: [7.0, 6.9, 9.5, 14.5, 25.2, {
+									y: 26.5,
+								}, 23.3, 18.3, 13.9]
+							}]
+						});
+						$(function() {
+							$('#container3').highcharts({
+								title: {
+									text: ''
+								},
+								xAxis: {
+									categories: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',
+										'17', '18', '19', '20', '21', '22', '23'
+									]
+								},
+								yAxis: [{
+									lineWidth: 1,
+									title: {
+										text: '电流A'
+									}
+								}, {
+									title: {
+										text: '功率'
+									},
+									lineWidth: 1,
+									opposite: true
+								}],
+								series: [{
+									data: [10, 21, 13, 24, 15, 26, 17, 28, 29, 10, 21, 13, 24, 15, 26, 17, 28, 29, 10, 21, 13, 24, 15, 26],
+									name: '功率',
+									yAxis: 0
+								}, {
+									data: [4, 1, 5, 8, 7, 10, 13, 11, 11],
+									yAxis: 1,
+									name: 'A相'
+								}, {
+									data: [5, 1, 7, 8, 7, 11, 10, 14, 14],
+									yAxis: 1,
+									name: 'B相'
+								}, {
+									data: [8, 2, 5, 8, 9, 10, 10, 16, 13],
+									yAxis: 1,
+									name: 'C相'
+								}]
+
+							});
+						});
+						$(function() {
+							$('#container4').highcharts({
+								title: {
+									text: ''
+								},
+								xAxis: {
+									categories: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',
+										'17', '18', '19', '20', '21', '22', '23'
+									]
+								},
+								yAxis: [{
+									lineWidth: 1,
+									title: {
+										text: '电流A'
+									}
+								}, {
+									title: {
+										text: '负载率'
+									},
+									lineWidth: 1,
+									opposite: true
+								}],
+								series: [{
+									data: [10, 21, 13, 24, 15, 26, 17, 28, 29, 10, 21, 13, 24, 15, 26, 17, 28, 29, 10, 21, 13, 24, 15, 26],
+									name: '负载率',
+									yAxis: 0
+								}, {
+									data: [4, 1, 5, 8, 7, 10, 13, 11, 11],
+									yAxis: 1,
+									name: 'A相'
+								}, {
+									data: [5, 1, 7, 8, 7, 11, 10, 14, 14],
+									yAxis: 1,
+									name: 'B相'
+								}, {
+									data: [8, 2, 5, 8, 9, 10, 10, 16, 13],
+									yAxis: 1,
+									name: 'C相'
+								}]
+
+							});
+						});
+					</script>
+
+
+
+
+
+
+		</body>
+	</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!--在这里导入thymeleaf-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>Title</title>
+
+			<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+			<link rel="stylesheet" href="css/demo1.css" />
+			<link rel="stylesheet" href="css/energy-data.css" />
+			<link rel="stylesheet" href="css/index.css" />
+			<script type="application/javascript" src="js/jquery.min.js"></script>
+			<script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+			<script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+			<script src="laydate/laydate.js"></script>
+
+
+
+		</head>
+		<body>
+			<nav class="navbar navbar-default" style="padding-right: 0px;">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">绿建联中央空调</a>
+					</div>
+
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#" id="warn">
+									<span class="glyphicon glyphicon-bell" style="font-size: 20px;z-index: 1"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" id="msg">
+									<span class="  glyphicon glyphicon-envelope" style="font-size: 20px;"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="#" id="avatar_a">
+									<img class="avatar_img" src="/imgs/01.jpg">
+								</a>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">空山新雨
+									<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">个人信息</a></li>
+									<li><a href="#">修改密码</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#">退出登录</a></li>
+								</ul>
+							</li>
+						</ul>
+
+						<ul class="nav navbar-nav navbar-right" style="margin-right: 100px;">
+							<li><a href="index_camera.html">实时监控 <span class="sr-only">(current)</span></a></li>
+
+							<li class="">
+								<a href="history_line.html">数据查询</a>
+							</li>
+							<li class="active"><a href="device_artifical_check.html">设备管理</a>
+							</li>
+							<li class="">
+								<a href="energy_table.html">能耗管理</a>
+							</li>
+							<li class="">
+								<a href="alarm_history_record.html">告警管理</a>
+							</li>
+
+							<li class="">
+								<a href="working_analyze.html">运营分析</a>
+
+							</li>
+							<li class="">
+								<a href="system_device.html">系统管理</a>
+
+							</li>
+							<li><a href="#">监控画面</a></li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
+
+			<div class="row" style="position: relative;margin-top: 15px;margin-right: 0px;">
+
+				<div class="col-sm-2" style="padding-right: 0px;">
+					<div class="panel-group" id="panelContainer">
+						<div class="panel panel-default">
+							<div id="header1" class="panel-heading" data-toggle="collapse" data-target="#sub1" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="energy_table.html">生产能耗</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+							<div id="sub1" class="collapse panel-collapse">
+								<div class="panel-body">
+									<ul class="nav">
+										<li>
+											<a href="energy_table.html">能效看板</a>
+										</li>
+										<li>
+											<a href="energy-analyze.html">能耗分析</a>
+										</li>
+										<li>
+											<a href="energy_form.html">车间能耗</a>
+										</li>
+										<li>
+											<a href="energy_device.html">设备能耗</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default">
+							<div id="header2" class="panel-heading" data-toggle="collapse" data-target="#sub2" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="energy-embed.html">嵌入能耗分析</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+
+						</div>
+						<div class="panel panel-default">
+							<div id="header2" class="panel-heading" data-toggle="collapse" data-target="#sub2" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="energy_tablemulti.html">综合报表</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-10">
+					<div class="row">
+						<div class="col-sm-12" style="padding-right: 0px;">
+							<form class="form-inline">
+
+								<div class="form-group has-success" style="margin-left: 12px;">
+									<div class="input-group" style="margin-top: -3px;">
+										开始日期:
+
+									</div>
+
+								</div>
+								<div class="form-group has-success" style="">
+									<div class="input-group" style="margin-top: -3px;">
+
+										<input type="text" class="form-control" id="startTime" placeholder="2020-3-17" style="width: 130px;cursor: pointer;">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+									</div>
+
+								</div>
+								<div class="form-group has-success" style="margin-left: 12px;">
+									<div class="input-group" style="margin-top: -3px;">
+										结束日期:
+
+									</div>
+
+								</div>
+								<div class="form-group has-success" style="">
+									<div class="input-group" style="margin-top: -3px;">
+										<input type="text" class="form-control" id="endTime" placeholder="2020-3-17" style="width: 130px;cursor: pointer;">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+									</div>
+
+								</div>
+								<div class="form-group has-success" style="margin-left: 15px;">
+									<div class="input-group" style="margin-top: -3px;">
+										<button type="button" class="btn btn-sm btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+										 aria-expanded="false">
+											水<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" style="overflow-y: scroll;height: 100px;">
+											电</a></li>
+											<li><a href="#">气</a></li>
+											<li><a href="#">油</a></li>
+
+										</ul>
+									</div>
+									<button class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-search"></span>&nbsp;查询</button>
+									<button class="btn btn-sm btn-success"><span class="glyphicon glyphicon-log-out"></span>&nbsp;导出</button>
+								</div>
+
+							</form>
+
+
+
+						</div>
+
+						<div class="row" style="position: relative;margin-top: 15px;margin-right:1%;margin-left: 1%;">
+
+							<table class="table table-bordered form-table" id="data-table">
+								<caption style="text-align: center;font-size:20px;font-weight:bold;">电耗能报表
+									<br />2020-3-19 - 2020-3-20
+								</caption>
+								<thead>
+									<tr style="background-color:#47475c;color:#FFFFFF">
+										<th rowspan="2" style="vertical-align: inherit;">车间</th>
+
+										<th colspan="2">尖</th>
+										<th colspan="2">峰</th>
+										<th colspan="2">平</th>
+										<th colspan="2">谷</th>
+										<th colspan="2">总</th>
+									</tr>
+									<tr style="background-color: #47475C;color: #ffffff;">
+										<th>用量(吨)</th>
+										<th>费用(元)</th>
+										<th>用量(吨)</th>
+										<th>费用(元)</th>
+										<th>用量(吨)</th>
+										<th>费用(元)</th>
+										<th>用量(吨)</th>
+										<th>费用(元)</th>
+										<th>用量(吨)</th>
+										<th>费用(元)</th>
+									</tr>
+								</thead>
+								<tbody style="text-align: center;">
+									<tr>
+										<td>中央空调</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>空调主机</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+
+									</tr>
+									<tr>
+										<td>空调主机</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>冷冻泵</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>冷却泵</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+
+									</tr>
+									<tr>
+										<td>冷却塔</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+
+
+					</div>
+				</div>
+
+
+
+
+
+
+				<script>
+					//执行一个laydate实例
+					laydate.render({
+						elem: '#startTime', //指定元素
+
+
+					});
+					laydate.render({
+						elem: '#endTime', //指定元素
+
+
+					});
+
+
+					var chart = Highcharts.chart('container', {
+						chart: {
+							type: 'spline'
+						},
+						title: {
+							text: '能耗分析趋势(etc)'
+						},
+						subtitle: {
+							text: '2020-03-17--2020-03-18'
+						},
+						xAxis: {
+							categories: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00',
+								'18:00', '21:00', '00:00'
+							]
+						},
+						yAxis: {
+							title: {
+								text: '温度'
+							},
+							labels: {
+								formatter: function() {
+									return this.value + '°';
+								}
+							}
+						},
+						tooltip: {
+							crosshairs: true,
+							shared: true
+						},
+						plotOptions: {
+							spline: {
+								marker: {
+									radius: 4,
+									lineColor: '#666666',
+									lineWidth: 1
+								}
+							}
+						},
+						series: [{
+							name: '最高值MAX',
+							data: [10.0, 12, 11, 14, 27, {
+								y: 26.5,
+							}, 27, 28, 26]
+						}, {
+							name: '平均值AVG',
+							data: [7.0, 6.9, 9.5, 14.5, 25.2, {
+								y: 26.5,
+							}, 23.3, 18.3, 13.9]
+						}, {
+							name: '最低值MIN',
+							data: [{
+								y: 3.9,
+							}, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2]
+						}]
+					});
+				</script>
+
+
+
+
+
+
+		</body>
+	</html>

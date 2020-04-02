@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!--在这里导入thymeleaf-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>Title</title>
+
+			<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+			<link rel="stylesheet" href="css/demo1.css" />
+			<link rel="stylesheet" href="css/working_report.css" />
+			<link rel="stylesheet" href="css/index.css" />
+			<script type="application/javascript" src="js/jquery.min.js"></script>
+			<script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+			<script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+			<script src="laydate/laydate.js"></script>
+
+
+
+
+		</head>
+		<body>
+			<nav class="navbar navbar-default" style="padding-right: 0px;">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">绿建联中央空调</a>
+					</div>
+
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#" id="warn">
+									<span class="glyphicon glyphicon-bell" style="font-size: 20px;z-index: 1"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" id="msg">
+									<span class="  glyphicon glyphicon-envelope" style="font-size: 20px;"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="#" id="avatar_a">
+									<img class="avatar_img" src="/imgs/01.jpg">
+								</a>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">空山新雨
+									<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">个人信息</a></li>
+									<li><a href="#">修改密码</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#">退出登录</a></li>
+								</ul>
+							</li>
+						</ul>
+
+						<ul class="nav navbar-nav navbar-right" style="margin-right: 100px;">
+							<li><a href="index_camera.html">实时监控 <span class="sr-only">(current)</span></a></li>
+							
+							<li class="">
+								<a href="history_line.html">数据查询</a>
+							</li>
+							<li class="active"><a href="device_artifical_check.html">设备管理</a>
+							</li>
+							<li class="">
+								<a href="energy_table.html">能耗管理</a>
+							</li>
+							<li class="">
+								<a href="alarm_history_record.html">告警管理</a>
+							</li>
+							
+							<li class="">
+								<a href="working_analyze.html">运营分析</a>
+							
+							</li>
+							<li class="">
+								<a href="system_device.html">系统管理</a>
+							
+							</li>
+							<li><a href="#">监控画面</a></li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
+
+			<div class="row" style="position: relative;margin-top: 15px;margin-right: 0px;">
+				<div class="col-sm-2" style="padding-right: 0px;">
+					<div class="panel-group" id="panelContainer">
+						<div class="panel panel-default">
+							<div id="header1" class="panel-heading" data-toggle="collapse" data-target="#sub1" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="device_count.html">设备管理</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+							<div id="sub1" class="collapse panel-collapse">
+								<div class="panel-body">
+									<ul class="nav">
+										<li>
+											<a href="device_count.html">设备台账</a>
+										</li>
+										<li>
+											<a href="device_total.html">设备统计</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div id="header2" class="panel-heading" data-toggle="collapse" data-target="#sub2" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="device_working_check.html">运行管理</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+							<div id="sub2" class="collapse panel-collapse">
+								<div class="panel-body">
+									<ul class="nav">
+										<li>
+											<a href="device_working_check.html">运行抄表</a>
+										</li>
+										<li>
+											<a href="device_working_record.html">运行记录</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div id="header3" class="panel-heading" data-toggle="collapse" data-target="#sub3" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="device_artifical_check.html">巡检管理</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+							<div id="sub3" class="collapse panel-collapse">
+								<div class="panel-body">
+									<ul class="nav">
+										<li>
+											<a href="device_artifical_check.html">人工巡检</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-sm-10">
+					<div class="col-sm-2">
+						<span style="font-size: 16px;font-weight: 700;color: #009688">设备统计</span>
+					</div>
+					<div id="tbbtn" class="col-sm-3 col-sm-offset-7" style="text-align: right">
+						<a style="font-size: 20px;font-weight: 700;cursor: pointer;color: #009688"><i class="glyphicon glyphicon-th"></i></a>
+						<a style="font-size: 20px;font-weight: 700;margin-left: 10px;cursor: pointer;"><i class="glyphicon glyphicon-object-align-bottom"></i></a>
+						<a style="font-size: 20px;font-weight: 700;margin-left: 10px;cursor: pointer"><i class="glyphicon glyphicon-log-out"></i></a>
+						<a style="font-size: 20px;font-weight: 700;margin-left: 10px;cursor: pointer"><i class="glyphicon glyphicon-repeat"></i></a>
+					</div>
+
+					<div class="col-sm-12 infobox-container">
+						<div class="infochart" id="container1" style="height: 400px">
+
+						</div>
+						<div class="infochart chart2" id="container2" style="height: 400px">
+						</div>
+					</div>
+					<div class="col-sm-12 infobox-container">
+						<div class="infochart" id="container3" style="height: 400px">
+
+						</div>
+						<div class="infochart chart2" id="container4" style="height: 400px">
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+
+
+
+
+			<script>
+				var chart1 = null;
+				$(function() {
+					$('#container1').highcharts({
+						chart1: {
+							plotBackgroundColor: null,
+							plotBorderWidth: null,
+							plotShadow: false,
+							spacing: [25, 0, 40, 0]
+						},
+						title: {
+							floating: true,
+							text: '按系统分析统计(台)'
+						},
+						tooltip: {
+							pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+						},
+						plotOptions: {
+							pie: {
+								allowPointSelect: true,
+								cursor: 'pointer',
+								dataLabels: {
+									enabled: true,
+									format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+									style: {
+										color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+									}
+								},
+								point: {
+									events: {
+										mouseOver: function(e) { // 鼠标滑过时动态更新标题
+											// 标题更新函数，API 地址：https://api.hcharts.cn/highcharts#Chart.setTitle
+											chart.setTitle({
+												text: e.target.name + '\t' + e.target.y + ' %'
+											});
+										}
+										//, 
+										// click: function(e) { // 同样的可以在点击事件里处理
+										//     chart.setTitle({
+										//         text: e.point.name+ '\t'+ e.point.y + ' %'
+										//     });
+										// }
+									}
+								},
+							}
+						},
+						series: [{
+							type: 'pie',
+							innerSize: '80%',
+							name: '市场份额',
+							data: [{
+									name: '冷却泵',
+									y: 7,
+								},
+								['冷却塔', 8],
+								{
+									name: '冷水机',
+									y: 4,
+									sliced: true,
+									selected: true,
+									url: 'http://www.hcharts.cn'
+								},
+								['冷冻泵', 6],
+
+							]
+						}]
+					}, function(c) {
+						// 环形图圆心
+						var centerY = c.series[0].center[1],
+							titleHeight = parseInt(c.title.styles.fontSize);
+						c.setTitle({
+							y: centerY + titleHeight / 2
+						});
+						chart = c;
+					});
+				});
+
+
+
+
+				Highcharts.chart('container2', {
+					chart: {
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false,
+						type: 'pie'
+					},
+					title: {
+						text: '按设备类型统计（台）'
+					},
+					tooltip: {
+						pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: true,
+								format: '<b>{point.name}</b>: {point.y}台',
+								style: {
+									color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+								}
+							}
+						}
+					},
+					series: [{
+						name: 'Brands',
+						colorByPoint: true,
+						data: [{
+							name: '冷水机',
+							y: 6,
+							sliced: true,
+							selected: true
+						}, {
+							name: '冷冻泵',
+							y: 5
+						}, {
+							name: '冷却泵',
+							y: 3
+						}, {
+							name: '冷却塔',
+							y: 4
+						}]
+					}]
+				});
+
+				var chart = Highcharts.chart('container3', {
+					chart: {
+						spacing: [40, 0, 40, 0]
+					},
+					title: {
+						floating: true,
+						text: '设备总量统计（台）'
+					},
+					tooltip: {
+						pointFormat: '{series.name}: <b>{point.percentage:.1f}台</b>'
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: true,
+								format: '<b>{point.name}</b>: {point.y} 台',
+								style: {
+									color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+								}
+							},
+							point: {
+								events: {
+									mouseOver: function(e) { // 鼠标滑过时动态更新标题
+										// 标题更新函数，API 地址
+										chart.setTitle({
+											text: e.target.name + '\t' + e.target.y + ' 台'
+										});
+									}
+									//,
+									// click: function(e) { // 同样的可以在点击事件里处理
+									//     chart.setTitle({
+									//         text: e.point.name+ '\t'+ e.point.y + ' %'
+									//     });
+									// }
+								}
+							},
+						}
+					},
+					series: [{
+						type: 'pie',
+						innerSize: '80%',
+						name: '市场份额',
+						data: [{
+							name: '设备总数',
+							y: 25
+						}, ]
+					}]
+				}, function(c) { // 图表初始化完毕后的会掉函数
+					// 环形图圆心
+					var centerY = c.series[0].center[1],
+						titleHeight = parseInt(c.title.styles.fontSize);
+					// 动态设置标题位置
+					c.setTitle({
+						y: centerY + titleHeight / 2
+					});
+				});
+
+
+				var chart = Highcharts.chart('container4', {
+					chart: {
+						spacing: [40, 0, 40, 0]
+					},
+					title: {
+						floating: true,
+						text: '系统统计（台）'
+					},
+					tooltip: {
+						pointFormat: '{series.name}: <b>{point.percentage:.1f}台</b>'
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: true,
+								format: '<b>{point.name}</b>: {point.y} 台',
+								style: {
+									color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+								}
+							},
+							point: {
+								events: {
+									mouseOver: function(e) { // 鼠标滑过时动态更新标题
+										// 标题更新函数，API 地址
+										chart.setTitle({
+											text: e.target.name + '\t' + e.target.y + '台'
+										});
+									}
+									//,
+									// click: function(e) { // 同样的可以在点击事件里处理
+									//     chart.setTitle({
+									//         text: e.point.name+ '\t'+ e.point.y + ' %'
+									//     });
+									// }
+								}
+							},
+						}
+					},
+					series: [{
+						type: 'pie',
+						innerSize: '80%',
+						name: '市场份额',
+						data: [{
+							name: '系统统计台数(中央空调)',
+							y: 26
+						}, ]
+					}]
+				}, function(c) { // 图表初始化完毕后的会掉函数
+					// 环形图圆心
+					var centerY = c.series[0].center[1],
+						titleHeight = parseInt(c.title.styles.fontSize);
+					// 动态设置标题位置
+					c.setTitle({
+						y: centerY + titleHeight / 2
+					});
+				});
+			</script>
+
+
+
+
+
+
+		</body>
+	</html>

@@ -1,0 +1,47 @@
+/*防止table中元素过长的时候进行换行*/
+#data-table-check td {
+	word-break: keep-all;
+	white-space: nowrap;
+	min-width: 80px;
+	background-color: #47475c!important;
+}
+#data-table-check td:first-child{
+	word-break: keep-all;
+	white-space: nowrap;
+	min-width: 80px;
+	color: #47475c!important;
+}
+#data-table-container td{
+	min-width: 80px;
+	text-align: center;
+}
+#cdt {
+	width: 1100px;
+	height: 100%;
+	overflow-x: scroll;
+	margin-top:2%;
+}
+
+.tl {
+	font-weight: 300;
+	text-align: center;
+	width: 2087px;
+	border-bottom: none;
+	margin-bottom: 0px;
+}
+
+.t1 table {
+	margin-bottom: 0px !important;
+}
+
+.data {
+	height: 200px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	width: 2400px;
+}
+
+.data table {
+	border-top: none;
+	margin-top: -2px;
+}

@@ -1,0 +1,18 @@
+table thead{
+	margin-bottom: 0px;
+	background-color: #47475c;
+	color: #ffffff;
+	white-space: nowrap;
+	word-wrap: break-word;
+	
+}
+table{
+	overflow-x:auto;
+}
+table thead th{
+	margin-bottom: 0px;
+	background-color: #47475c;
+	color: #ffffff;
+	min-width: 140px;
+	
+}

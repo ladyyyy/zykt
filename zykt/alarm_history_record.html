@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!--在这里导入thymeleaf-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>Title</title>
+
+			<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+			<link rel="stylesheet" href="css/demo1.css" />
+			<link rel="stylesheet" href="css/index.css"/>
+			<link rel="stylesheet" href="css/alarm_history_record.css">
+			<link rel="stylesheet" href="css/info_fixed_table.css" />
+			<link rel="stylesheet" href="css/system_device.css" />
+			<script type="application/javascript" src="js/jquery.min.js"></script>
+			<script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+			<script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+			<script src="laydate/laydate.js"></script>
+
+	
+
+		</head>
+		<body>
+			<nav class="navbar navbar-default" style="padding-right: 0px;">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">绿建联中央空调</a>
+					</div>
+
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#" id="warn">
+									<span class="glyphicon glyphicon-bell" style="font-size: 20px;z-index: 1"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" id="msg">
+									<span class="  glyphicon glyphicon-envelope" style="font-size: 20px;"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="#" id="avatar_a">
+									<img class="avatar_img" src="/imgs/01.jpg">
+								</a>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">空山新雨
+									<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">个人信息</a></li>
+									<li><a href="#">修改密码</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#">退出登录</a></li>
+								</ul>
+							</li>
+						</ul>
+
+						<ul class="nav navbar-nav navbar-right" style="margin-right: 100px;">
+							<li><a href="index_camera.html">实时监控 <span class="sr-only">(current)</span></a></li>
+							
+							<li class="">
+								<a href="history_line.html">数据查询</a>
+							</li>
+							<li class="active"><a href="device_artifical_check.html">设备管理</a>
+							</li>
+							<li class="">
+								<a href="energy_table.html">能耗管理</a>
+							</li>
+							<li class="">
+								<a href="alarm_history_record.html">告警管理</a>
+							</li>
+							
+							<li class="">
+								<a href="working_analyze.html">运营分析</a>
+							
+							</li>
+							<li class="">
+								<a href="system_device.html">系统管理</a>
+							
+							</li>
+							<li><a href="#">监控画面</a></li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
+
+			<div class="row" style="position: relative;margin-top: 15px;margin-right: 0px;">
+				<div class="col-sm-2" style="padding-right: 0px;">
+					<div class="panel-group" id="panelContainer">
+						<div class="panel panel-default">
+							<div id="header1" class="panel-heading" data-toggle="collapse" data-target="#sub1" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="alarm_history_record.html">告警信息</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+							<div id="sub1" class="collapse panel-collapse">
+								<div class="panel-body">
+									<ul class="nav">
+										<li>
+											<a href="alarm_history_record.html">告警记录</a>
+										</li>
+										<li>
+											<a href="alarm_thing_record.html">事件记录</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div id="header2" class="panel-heading" data-toggle="collapse" data-target="" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="alarm_statics.html">告警统计</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-10">
+					<div class="col-sm-12">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="alarm_record.html">当前告警</a></li>
+							<li><a href="alarm_history_record.html">历史告警</a></li>
+						</ul>
+
+					</div>
+
+					<div class="col-sm-12" style="height: 15px;"></div>
+
+					<div class="col-sm-12">
+						<form class="form-inline">
+							<div class="form-group has-success" style="">
+								<div class="input-group" style="margin-top: -3px;">
+									开始日期:
+
+								</div>
+
+							</div>
+							<div class="form-group has-success" style="">
+								<div class="input-group" style="margin-top: -3px;">
+
+									<input type="text" class="form-control" id="startTime" placeholder="2020-3-17" style="width: 130px;cursor: pointer;">
+									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+
+							</div>
+							<div class="form-group has-success" style="margin-left: 12px;">
+								<div class="input-group" style="margin-top: -3px;">
+									结束日期:
+								</div>
+
+							</div>
+							<div class="form-group has-success" style="">
+								<div class="input-group" style="margin-top: -3px;">
+									<input type="text" class="form-control" id="endTime" placeholder="2020-3-17" style="width: 130px;cursor: pointer;">
+									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+
+							</div>
+							<div class="form-group has-success" style="margin-left: 18px;">
+								<div class="input-group" style="margin-top: -3px;">
+									<button type="button" class="btn  btn-sm btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+									 aria-expanded="false">
+										全部<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" style="overflow-y: scroll;height: auto;width:50px;">
+										<li><a>301-302空调机房</a></li>
+										<li><a>500T空调机房</a></li>
+
+									</ul>
+								</div>
+
+							</div>
+							<div class="form-group has-success">
+								<div class="input-group" style="margin-top: -3px;">
+									<button type="button" class="btn  btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+									 aria-expanded="false">
+										冷冻机<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" style="overflow-y: scroll;height: auto;width:50px;">
+										<li><a>301-302空调机房</a></li>
+										<li><a>500T空调机房</a></li>
+
+									</ul>
+								</div>
+
+							</div>
+							<div class="form-group has-success">
+								<div class="input-group" style="margin-top: -3px;">
+									<button type="button" class="btn  btn-sm btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+									 aria-expanded="false">
+										一般告警<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" style="overflow-y: scroll;height: auto;width:50px;">
+										<li><a>全部</a></li>
+										<li><a>严重告警</a></li>
+
+									</ul>
+								</div>
+
+							</div>
+							<button class="btn btn-sm btn-primary" style="color: #fffff!important;margin-left: 15px;float:right"><span class="glyphicon glyphicon-search"
+								 style="color: #fffff!important;"></span>&nbsp;查询</button>
+							<div class="input-group mb-3 input-group-sm" style="width:200px;float: right;">
+								<input type="text" class="form-control" placeholder="输入关键字查询">
+
+							</div>
+
+					</div>
+
+					<div class="col-sm-12" style="margin-top:2%;">
+						<div class="">
+							<div class="">
+								<table id="2" class="table table-bordered" role="grid" cellspacing="0" style="margin-bottom: 0px;">
+									<thead style="">
+										<tr role="row">
+											<th style="">房间名称</th>
+											<th style="">设备名称</th>
+											<th style="">设备类型</th>
+											<th style="">告警信息</th>
+											<th style="">告警等级</th>
+											<th style="">告警时间</th>
+											<th style="">处理时间</th>
+											<th style="">告警解除时间</th>
+											<th style="">处理人</th>
+											<th style="">响应时长</th>
+											<th style="">恢复时长</th>
+											<th style="">是否及时处理</th>
+										</tr>
+									</thead>
+									<tbody role="row">
+
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+
+						<div class="table-footerinfo" style="margin-top:0px;padding-top: 0px;margin-left: 0px;">
+							<span>没有找到符合条件的数据
+							</span>
+						</div>
+
+
+
+					</div>
+
+
+
+
+
+
+					<script>
+						$(function() {
+							function initTableCheckbox() {
+								var $thr = $('table thead tr');
+								var $checkAllTh = $('<th><input type="checkbox" id="checkAll" name="checkAll" /></th>');
+								/*将全选/反选复选框添加到表头最前，即增加一列*/
+								$thr.prepend($checkAllTh);
+								/*“全选/反选”复选框*/
+								var $checkAll = $thr.find('input');
+								$checkAll.click(function(event) {
+									/*将所有行的选中状态设成全选框的选中状态*/
+									$tbr.find('input').prop('checked', $(this).prop('checked'));
+									/*并调整所有选中行的CSS样式*/
+									if ($(this).prop('checked')) {
+										$tbr.find('input').parent().parent().addClass('warning');
+									} else {
+										$tbr.find('input').parent().parent().removeClass('warning');
+									}
+									/*阻止向上冒泡，以防再次触发点击操作*/
+									event.stopPropagation();
+								});
+								/*点击全选框所在单元格时也触发全选框的点击操作*/
+								$checkAllTh.click(function() {
+									$(this).find('input').click();
+								});
+								var $tbr = $('table tbody tr');
+								var $checkItemTd = $('<td><input type="checkbox" name="checkItem" /></td>');
+								/*每一行都在最前面插入一个选中复选框的单元格*/
+								$tbr.prepend($checkItemTd);
+								/*点击每一行的选中复选框时*/
+								$tbr.find('input').click(function(event) {
+									/*调整选中行的CSS样式*/
+									$(this).parent().parent().toggleClass('warning');
+									/*如果已经被选中行的行数等于表格的数据行数，将全选框设为选中状态，否则设为未选中状态*/
+									$checkAll.prop('checked', $tbr.find('input:checked').length == $tbr.length ? true : false);
+									/*阻止向上冒泡，以防再次触发点击操作*/
+									event.stopPropagation();
+								});
+								/*点击每一行时也触发该行的选中操作*/
+								$tbr.click(function() {
+									$(this).find('input').click();
+								});
+							}
+							initTableCheckbox();
+						});
+						laydate.render({
+							elem: '#startTime' //指定元素
+						});
+						
+					</script>
+
+
+
+
+
+
+		</body>
+	</html>

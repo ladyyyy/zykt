@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery自定义分页</title>
+		<link rel="stylesheet" href="css/page.css" />
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<div class="page" id="Page">
+            <!--<ul>
+                <li class="disabled"><a href="#" data-page="0">首页</a></li>
+                <li class="disabled"><a href="#" data-page="0">上一页</a></li>
+                <li class="active"><a href="#page1" data-page="1">1</a></li>
+                <li><a href="#page2" data-page="2">2</a></li>
+                <li><a href="#page3" data-page="3">3</a></li>
+                <li><a href="#page4" data-page="4">4</a></li>
+                <li><a href="#page5" data-page="5">5</a></li>
+                <li><a href="#page6" data-page="6">6</a></li>
+                <li><a href="#" data-page="2">下一页</a></li>
+                <li><a href="#" data-page="15">末页</a></li>
+            </ul>-->
+        </div>
+	</body>
+	<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="js/MyPage.js"></script>
+	<script type="text/javascript">
+		
+		P.initMathod({
+	        params: {elemId: '#Page',total:'123'},
+	        requestFunction: function () {
+	           // P.config.total = parseInt(Math.random() * 10 + 85);//此处模拟总记录变化
+	
+	            //TODO ajax异步请求过程,异步获取到的数据总条数赋值给 P.config.total
+	            
+	            //列表渲染自行处理
+	            console.log(JSON.stringify(P.config));
+	        }
+	    });
+	</script>
+</html>

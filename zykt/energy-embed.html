@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!--在这里导入thymeleaf-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>Title</title>
+
+			<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+			<link rel="stylesheet" href="css/demo1.css" />
+			<link rel="stylesheet" href="css/energy_embed.css" />
+			<link rel="stylesheet" href="css/index.css" />
+			<script type="application/javascript" src="js/jquery.min.js"></script>
+			<script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+			<script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+			<script src="laydate/laydate.js"></script>
+
+
+
+		</head>
+		<body>
+			<nav class="navbar navbar-default" style="padding-right: 0px;">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">绿建联中央空调</a>
+					</div>
+
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#" id="warn">
+									<span class="glyphicon glyphicon-bell" style="font-size: 20px;z-index: 1"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" id="msg">
+									<span class="  glyphicon glyphicon-envelope" style="font-size: 20px;"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="#" id="avatar_a">
+									<img class="avatar_img" src="/imgs/01.jpg">
+								</a>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">空山新雨
+									<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">个人信息</a></li>
+									<li><a href="#">修改密码</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#">退出登录</a></li>
+								</ul>
+							</li>
+						</ul>
+
+						<ul class="nav navbar-nav navbar-right" style="margin-right: 100px;">
+							<li><a href="index_camera.html">实时监控 <span class="sr-only">(current)</span></a></li>
+							
+							<li class="">
+								<a href="history_line.html">数据查询</a>
+							</li>
+							<li class="active"><a href="device_artifical_check.html">设备管理</a>
+							</li>
+							<li class="">
+								<a href="energy_table.html">能耗管理</a>
+							</li>
+							<li class="">
+								<a href="alarm_history_record.html">告警管理</a>
+							</li>
+							
+							<li class="">
+								<a href="working_analyze.html">运营分析</a>
+							
+							</li>
+							<li class="">
+								<a href="system_device.html">系统管理</a>
+							
+							</li>
+							<li><a href="#">监控画面</a></li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
+
+			<div class="row" style="position: relative;margin-top: 15px;margin-right: 0px;">
+				<div class="col-sm-2" style="padding-right: 0px;">
+					<div class="panel-group" id="panelContainer">
+						<div class="panel panel-default">
+							<div id="header1" class="panel-heading" data-toggle="collapse" data-target="#sub1" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="energy_table.html">生产能耗</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+							<div id="sub1" class="collapse panel-collapse">
+								<div class="panel-body">
+									<ul class="nav">
+										<li>
+											<a href="energy_table.html">能效看板</a>
+										</li>
+										<li>
+											<a href="energy-analyze.html">能耗分析</a>
+										</li>
+										<li>
+											<a href="energy_form.html">车间能耗</a>
+										</li>
+										<li>
+											<a href="energy_device.html">设备能耗</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default">
+							<div id="header2" class="panel-heading" data-toggle="collapse" data-target="#sub2" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="energy-embed.html">嵌入能耗分析</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+
+						</div>
+						<div class="panel panel-default">
+							<div id="header2" class="panel-heading" data-toggle="collapse" data-target="#sub2" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="energy_tablemulti.html">综合报表</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-10">
+					<div class="row">
+						<div class="col-sm-8" style="padding-right: 0px;">
+							<form class="form-inline">
+								<div class="form-group">
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> 日
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 周
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 月
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 年
+									</label>
+								</div>
+								<div class="form-group form-group has-success" style="">
+									<div class="input-group" style="margin-top: -3px;">
+										<input type="text" class="form-control" id="startTime" placeholder="2020-3-17" style="width: 130px;cursor: pointer;">
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
+								</div>
+								<div class="form-group has-success" style="margin-left: 15px;">
+
+									<div class="btn-group ">
+										<button type="button" class="btn btn-sm btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+										 aria-expanded="false">
+											珠海保税区丽珠合成制药有限公司<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" style="overflow-y: scroll;height: 300px;">
+											<li><a href="#">通讯状态</a></li>
+											<li><a href="#">故障状态</a></li>
+											<li><a href="#">手自动状态</a></li>
+											<li><a href="#">电流</a></li>
+											<li><a href="#">电压</a></li>
+											<li><a href="#">功率</a></li>
+											<li><a href="#">负载率</a></li>
+											<li><a href="#">频率</a></li>
+											<li><a href="#">A相电流</a></li>
+											<li><a href="#">B相电流</a></li>
+											<li><a href="#">C相电流</a></li>
+											<li><a href="#">Uab</a></li>
+											<li><a href="#">Ubc</a></li>
+											<li><a href="#">Uca</a></li>
+											<li><a href="#">柜内温度</a></li>
+											<li><a href="#">冷冻水供水总管压力</a></li>
+											<li><a href="#">le冷冻水回水总管压力</a></li>
+											<li><a href="#">冷冻水供水总管温度</a></li>
+											<li><a href="#">冷冻水回水总管温度</a></li>
+											<li><a href="#">有功电度</a></li>
+											<li><a href="#">主机冷冻回水温度</a></li>
+											<li><a href="#">主机冷却出水温度</a></li>
+											<li><a href="#">主机冷冻供水温度</a></li>
+											<li><a href="#">主机冷却进水温度</a></li>
+											<li><a href="#">蒸发器压力</a></li>
+											<li><a href="#">水流状态</a></li>
+											<li><a href="#">冷媒温度</a></li>
+											<li><a href="#">冷凝器饱和温度</a></li>
+											<li><a href="#">冷凝器压力</a></li>
+											<li><a href="#">热油温度</a></li>
+											<li><a href="#">热油压差</a></li>
+											<li><a href="#">热油压力</a></li>
+											<li><a href="#">点击运行状态</a></li>
+											<li><a href="#">振动频率</a></li>
+											<li><a href="#">轴承振动</a></li>
+											<li><a href="#">泵体振动</a></li>
+											<li><a href="#">蒸发饱和压力</a></li>
+											<li><a href="#">水流量</a></li>
+											<li><a href="#">主机冷冻水流量</a></li>
+											<li><a href="#">主机冷却水流量</a></li>
+											<li><a href="#">冷却水进水总管压力</a></li>
+											<li><a href="#">冷却水出水总管压力</a></li>
+										</ul>
+										<button class="btn btn-sm btn-primary" style="margin-left: 15px;"><span class="glyphicon glyphicon-search"></span>&nbsp;查询</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-sm-4 " style="padding-left: 0px;float:right;text-align: right;padding-right: 30px;">
+							<div class="row">
+								<!-- Single button -->
+
+
+
+								<div id="tbbtn" style="text-align: right;display: inline-block;">
+									<a style="font-size: 20px;font-weight: 700;cursor: pointer;color: #009688;"><i class="glyphicon glyphicon-th"></i></a>
+									<a style="font-size: 20px;font-weight: 700;margin-left: 10px;cursor: pointer;"><i class="glyphicon glyphicon-object-align-bottom"></i></a>
+									<a style="font-size: 20px;font-weight: 700;margin-left: 10px;cursor: pointer;"><i class="glyphicon glyphicon-log-out"></i></a>
+									<a style="font-size: 20px;font-weight: 700;margin-left: 10px;cursor: pointer;"><i class="glyphicon glyphicon-repeat"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="panel panel-default panel-all">
+								<div class="panel-body info-all" style="">
+
+									<div style="padding-left:80px;text-align: left;padding-top:19px;">
+										<span style=>当年</span>
+										<span style=>&nbsp;&nbsp;</span>
+										<span style="">627344.5kwh</span>
+										<br style=""></br>
+										<span style="">去年</span>
+										<span style=>&nbsp;&nbsp;</span>
+										<span style="">6775.8kwh</span>
+										<br style=""></br>
+
+
+										<span style="">实时功率</span>
+										<span style=>&nbsp;&nbsp;</span>
+										<span style="">539.59kg/w㎡</span>
+										<br style=""></br>
+										<span style="">建筑能效（标煤）</span>
+										<span style=>&nbsp;&nbsp;</span>
+										<span style="">250937.8kg/w㎡</span>
+										<br style=""></br>
+										<span style="">排放水平（CO²）</span>
+										<span style=>&nbsp;&nbsp;</span>
+										<span style="">625462.5kg/w㎡</span>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="col-sm-6">
+							<div class="panel panel-default panel-chart" id="container">
+							</div>
+
+						</div>
+
+					</div>
+					<div class="row">
+						<div class="" id="container1" style="margin-top: 30px;"></div>
+					</div>
+					<div class="" id="container2" style="margin-top: 30px;"></div>
+				</div>
+			</div>
+
+
+
+
+
+
+			<script>
+				//执行一个laydate实例
+				laydate.render({
+					elem: '#startTime' //指定元素
+				});
+				chart1 = Highcharts.chart('container1', {
+					title: {
+						text: '重点设备日耗能'
+					},
+					subtitle: {
+						text: ''
+					},
+					yAxis: {
+						title: {
+							text: '运行状态单位'
+						}
+					},
+					xAxis: {
+						categories: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00',
+							'11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00',
+							'23:00', '24:00'
+						]
+					},
+					legend: {
+						layout: 'vertical',
+						align: 'right',
+						verticalAlign: 'middle'
+					},
+					//取消水印连接
+					credits: {
+						enabled: false
+					},
+					plotOptions: {
+						series: {
+							label: {
+								connectorAllowed: false
+							}
+						}
+					},
+					series: [{
+						name: '运行状态',
+						data: [0, 0, 0, 0, 0, 0, 0, 0, 1, 0.5, 1, 0.5, 0.25, 0.5, 1, 1, 0.5, 1, 0, 0, 0, 0, 0, 0, 0]
+					}],
+					responsive: {
+						rules: [{
+							condition: {
+								maxWidth: 500
+							},
+							chartOptions: {
+								legend: {
+									layout: 'horizontal',
+									align: 'center',
+									verticalAlign: 'bottom'
+								}
+							}
+						}]
+					}
+				});
+
+
+				$(document).ready(function() {
+					var chart = {
+						type: 'column'
+					};
+					var title = {
+						text: '分项年耗能'
+					};
+					var subtitle = {
+						text: ''
+					};
+					var xAxis = {
+						categories: ['空调主机A', '空调主机B', '空调主机A(武冷)', '主机A'],
+						crosshair: true
+					};
+					var yAxis = {
+						min: 0,
+						title: {
+							text: 'K'
+						}
+					};
+					var tooltip = {
+						headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+						pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+							'<td style="padding:0"><b>{point.y:.1f} K</b></td></tr>',
+						footerFormat: '</table>',
+						shared: true,
+						useHTML: true
+					};
+					var plotOptions = {
+						column: {
+							pointPadding: 0.2,
+							borderWidth: 0
+						}
+					};
+					var credits = {
+						enabled: false
+					};
+
+					var series = [{
+
+
+						data: [20, 130, 0, 110]
+					}];
+
+					var json = {};
+					json.chart = chart;
+					json.title = title;
+					json.subtitle = subtitle;
+					json.tooltip = tooltip;
+					json.xAxis = xAxis;
+					json.yAxis = yAxis;
+					json.series = series;
+					json.plotOptions = plotOptions;
+					json.credits = credits;
+					$('#container').highcharts(json);
+
+				});
+				$(document).ready(function() {
+					var chart = {
+						type: 'column'
+					};
+					var title = {
+						text: '分项年耗能'
+					};
+					var subtitle = {
+						text: ''
+					};
+					var xAxis = {
+						categories: ['空调主机A', '空调主机B', '空调主机A(武冷)', '主机A'],
+						crosshair: true
+					};
+					var yAxis = {
+						min: 0,
+						title: {
+							text: 'K'
+						}
+					};
+					var tooltip = {
+						headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+						pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+							'<td style="padding:0"><b>{point.y:.1f} K</b></td></tr>',
+						footerFormat: '</table>',
+						shared: true,
+						useHTML: true
+					};
+					var plotOptions = {
+						column: {
+							pointPadding: 0.2,
+							borderWidth: 0
+						}
+					};
+					var credits = {
+						enabled: false
+					};
+
+					var series = [{
+
+
+						data: [20, 130, 0, 110]
+					}];
+
+					var json = {};
+					json.chart = chart;
+					json.title = title;
+					json.subtitle = subtitle;
+					json.tooltip = tooltip;
+					json.xAxis = xAxis;
+					json.yAxis = yAxis;
+					json.series = series;
+					json.plotOptions = plotOptions;
+					json.credits = credits;
+					$('#container2').highcharts(json);
+
+				});
+			</script>
+
+
+
+
+
+
+		</body>
+	</html>

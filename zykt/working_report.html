@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<!DOCTYPE html>
+<!--在这里导入thymeleaf-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>Title</title>
+
+			<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+			<link rel="stylesheet" href="css/demo1.css" />
+			<link rel="stylesheet" href="css/working_report.css" />
+				<link rel="stylesheet" href="css/index.css"/>
+			<script type="application/javascript" src="js/jquery.min.js"></script>
+			<script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+			<script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+			<script src="laydate/laydate.js"></script>
+
+		
+
+		</head>
+		<body>
+			<nav class="navbar navbar-default" style="padding-right: 0px;">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">绿建联中央空调</a>
+					</div>
+
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#" id="warn">
+									<span class="glyphicon glyphicon-bell" style="font-size: 20px;z-index: 1"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" id="msg">
+									<span class="  glyphicon glyphicon-envelope" style="font-size: 20px;"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="#" id="avatar_a">
+									<img class="avatar_img" src="/imgs/01.jpg">
+								</a>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">空山新雨
+									<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">个人信息</a></li>
+									<li><a href="#">修改密码</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#">退出登录</a></li>
+								</ul>
+							</li>
+						</ul>
+
+						<ul class="nav navbar-nav navbar-right" style="margin-right: 100px;">
+							<li><a href="index_camera.html">实时监控 <span class="sr-only">(current)</span></a></li>
+							
+							<li class="">
+								<a href="history_line.html">数据查询</a>
+							</li>
+							<li class="active"><a href="device_artifical_check.html">设备管理</a>
+							</li>
+							<li class="">
+								<a href="energy_table.html">能耗管理</a>
+							</li>
+							<li class="">
+								<a href="alarm_history_record.html">告警管理</a>
+							</li>
+							
+							<li class="">
+								<a href="working_analyze.html">运营分析</a>
+							
+							</li>
+							<li class="">
+								<a href="system_device.html">系统管理</a>
+							
+							</li>
+							<li><a href="#">监控画面</a></li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
+
+			<div class="row" style="position: relative;margin-top: 15px;margin-right: 0px;">
+				<div class="col-sm-2" style="padding-right: 0px;">
+					<div class="panel-group" id="panelContainer">
+						<div class="panel panel-default">
+							<div id="header1" class="panel-heading" data-toggle="collapse" data-target="#sub1" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="#">中央空调</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+							<div id="sub1" class="collapse panel-collapse">
+								<div class="panel-body">
+									<ul class="nav">
+										<li>
+											<a href="working_analyze.html">运行分析</a>
+										</li>
+										<li>
+											<a href="working_energy_analyze.html">能耗分析</a>
+										</li>
+										<li>
+											<a href="working_history.html">历史数据</a>
+										</li>
+										<li>
+											<a href="working_report.html">运营报告</a>
+										</li>
+										<li>
+											<a href="working-cop-analyze.html">COP分析</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-10">
+					<div class="col-sm-12" style="padding-right: 0px;">
+						<form class="form-inline">
+
+							<div class="form-group has-success" style="margin-left: 12px;">
+								<div class="input-group" style="margin-top: -3px;">
+									<input type="text" class="form-control" id="startTime" placeholder="2020-3-17" style="width: 130px;cursor: pointer;">
+									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+
+							</div>
+							<div class="form-group has-success" style="">
+								<div class="input-group"><span>能源:</span></div>
+								<div class="input-group" style="margin-top: -3px;">
+									<button type="button" class="btn  btn-sm btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+									 aria-expanded="false">
+										水<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" style="overflow-y: scroll;height: auto;width:50px;">
+										<li><a>电</a></li>
+										<li><a href="#">气</a></li>
+										<li><a href="#">油</a></li>
+
+									</ul>
+
+
+
+								</div>
+							</div>
+						</form>
+
+					</div>
+
+
+
+					<div class="col-sm-12 infobox-container">
+
+						<div class="infobox infoxbox-energy">
+							<div class="infobox-icon">
+								<i class="icon-safe">
+									<img src="./imgs/work-ene.png"></img>
+								</i>
+							</div>
+							<div class="infobox-data">
+								<span class="infobox-data-number">
+									能耗统计
+								</span>
+								<div class="infobox-content">
+									总能耗:5804.6kwh
+								</div>
+								<div class="infobox-content">
+									可节能耗:5804.6kwh
+								</div>
+								<div class="infobox-content">
+									可节能率:5804.6kwh
+								</div>
+							</div>
+
+						</div>
+						<div class="infobox infoxbox-summrize">
+							<div class="infobox-icon">
+								<i class="icon-safe">
+									<img src="./imgs/work_summrize.png"></img>
+								</i>
+							</div>
+							<div class="infobox-data">
+								<span class="infobox-data-number">
+									运行统计
+								</span>
+								<div class="infobox-content">
+									空调运行情况:主机B运行
+								</div>
+								<div class="infobox-content">
+									运行时长:9H
+								</div>
+								<div class="infobox-content">
+									冷水机运行情况:共有一台冷水机在运行
+								</div>
+
+							</div>
+
+
+						</div>
+						<div class="infobox infoxbox-notice">
+							<div class="infobox-icon">
+								<i class="icon-safe">
+									<img src="./imgs/work_notice.png"></img>
+								</i>
+							</div>
+							<div class="infobox-data">
+								<span class="infobox-data-number">
+									安全隐患
+								</span>
+								<div class="infobox-content">
+									警告总数:0
+								</div>
+								<div class="infobox-content">
+									严重警告:无
+								</div>
+								<div class="infobox-content">
+									一般警告:无
+								</div>
+
+
+							</div>
+
+						</div>
+						<div class="infobox infoxbox-low">
+							<div class="infobox-icon">
+								<i class="icon-safe">
+									<img src="./imgs/work_low.png"></img>
+								</i>
+							</div>
+							<div class="infobox-data">
+								<span class="infobox-data-number">
+									低能耗事件
+								</span>
+								<div class="infobox-content">
+									事件总数:0
+								</div>
+
+
+
+							</div>
+
+						</div>
+						<div class="infobox infoxbox-on">
+							<div class="infobox-icon">
+								<i class="icon-safe">
+									<img src="./imgs/work-on.png"></img>
+								</i>
+							</div>
+							<div class="infobox-data">
+								<span class="infobox-data-number">
+									开机异常
+								</span>
+								<div class="infobox-content">
+									设备类型:冷水机
+								</div>
+								<div class="infobox-content">
+									规定开机时间:冷水机
+								</div>
+								<div class="infobox-content">
+									提前开机时长:冷水机
+								</div>
+								<div class="infobox-content">
+									可节能耗(kwh):10kwh
+								</div>
+							</div>
+
+						</div>
+						<div class="infobox infoxbox-safe">
+							<div class="infobox-icon">
+								<i class="icon-safe">
+									<img src="./imgs/work-off.png"></img>
+								</i>
+							</div>
+							<div class="infobox-data">
+								<span class="infobox-data-number">
+									关机异常
+								</span>
+								<div class="infobox-content">
+									设备类型:冷水机
+								</div>
+								<div class="infobox-content">
+									规定关机时间:冷水机
+								</div>
+								<div class="infobox-content">
+									推迟关机时长:冷水机
+								</div>
+								<div class="infobox-content">
+									可节能耗(kwh):10kwh
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="col-sm-12 infobox-container">
+						<div class="infochart" id="container1" style="height: 400px">
+
+						</div>
+						<div class="infochart chart2" id="container2" style="height: 400px">
+						</div>
+					</div>
+					<div class="col-sm-12 infobox-container">
+						<div id="container3" style="height:400px;">
+						</div>
+					</div>
+
+
+
+
+
+
+					<script>
+						//执行一个laydate实例
+						laydate.render({
+							elem: '#startTime' //指定元素
+						});
+						//主机负载率占比
+						Highcharts.chart('container2', {
+							chart: {
+								plotBackgroundColor: null,
+								plotBorderWidth: null,
+								plotShadow: false,
+								type: 'pie'
+							},
+							title: {
+								text: '主机负载率占比'
+							},
+							tooltip: {
+								pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+							},
+							plotOptions: {
+								pie: {
+									allowPointSelect: true,
+									cursor: 'pointer',
+									dataLabels: {
+										enabled: true,
+										format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+										style: {
+											color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+										}
+									}
+								}
+							},
+							series: [{
+								name: 'Brands',
+								colorByPoint: true,
+								data: [{
+									name: '冷却塔',
+									y: 6,
+									sliced: true,
+									selected: true
+								}, {
+									name: '冷水机',
+									y: 50
+								}, {
+									name: '冷却泵',
+									y: 10.85
+								}, {
+									name: '冷冻泵',
+									y: 14.87
+								}]
+							}]
+						});
+						//能耗占比
+						var chart1 = Highcharts.chart('container1', {
+							chart: {
+								type: 'pie',
+								options3d: {
+									enabled: true,
+									alpha: 45
+								}
+							},
+							title: {
+								text: '能耗占比'
+							},
+							subtitle: {
+								text: ''
+							},
+							plotOptions: {
+								pie: {
+									innerSize: 100,
+									depth: 45
+								}
+							},
+							series: [{
+								name: '能耗占比',
+								data: [
+									['空调主机A', 8],
+									['空调主机B', 3],
+									['空调主机C', 1],
+									['冷水机', 6],
+									['冷却塔', 8],
+									['冷冻泵', 4],
+									['冷冻泵(武冷)', 4],
+									['冷却塔(武冷)', 1],
+
+								]
+							}]
+						});
+						var chart2 = Highcharts.chart('container3', {
+							chart: {
+								type: 'spline'
+							},
+							title: {
+								text: '能耗温差趋势'
+							},
+							subtitle: {
+								text: '2020-03-17--2020-03-18'
+							},
+							xAxis: {
+								categories: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00',
+									'18:00', '21:00', '00:00'
+								]
+							},
+							yAxis: {
+								title: {
+									text: '温差'
+								},
+								labels: {
+									formatter: function() {
+										return this.value + '°';
+									}
+								}
+							},
+							tooltip: {
+								crosshairs: true,
+								shared: true
+							},
+							plotOptions: {
+								spline: {
+									marker: {
+										radius: 4,
+										lineColor: '#666666',
+										lineWidth: 1
+									}
+								}
+							},
+							series: [{
+								name: '冷却进水温差',
+								data: [10.0, 12, 11, 14, 27, {
+									y: 26.5,
+								}, 27, 28, 26]
+							}, {
+								name: '冷冻供回水温差',
+								data: [7.0, 6.9, 9.5, 14.5, 25.2, {
+									y: 26.5,
+								}, 23.3, 18.3, 13.9]
+							}]
+						});
+					</script>
+
+
+
+
+
+
+		</body>
+	</html>

@@ -1,0 +1,102 @@
+.infobox-container{
+	text-align: center;
+	font-size: 0;
+	margin-top: 2%;
+	margin-left: -1.2%;
+}
+.info-chart-container{
+	text-align: center;
+	font-size: 0;
+	margin-top: 2%;
+	
+}
+.infochart-container{
+	text-align: center;
+	font-size: 0;
+	margin-top: 2%;
+	margin-left: 1.2%;
+}
+
+.infobox {
+	display: inline-block;
+	width: ;
+	height: 200px;
+	width: 32.7%;
+	padding: 8px 3px 6px 9px;
+	
+	border: 1px solid;
+	border-color: #d8d8d8!important;
+	text-align: left;
+	position: relative;
+	vertical-align: middle;
+}
+.infobox-container>.chart2{
+	margin-right:0 !important;
+}
+.infochart{
+display: inline-block;
+	
+	height: 150px;
+	width: 46%;
+	margin-right: 70px;
+	padding: 8px 3px 6px 9px;
+	border: 1px solid;
+	border-color: #d8d8d8!important;
+	text-align: left;
+	position: relative;
+	vertical-align: middle;
+	
+}
+.infoxbox-energy{
+	color:#3c763d;
+}
+.infoxbox-summrize{
+	color:#f0ad4e;
+}
+.infoxbox-low{
+	color:#47475c;
+}
+.infoxbox-notice{
+	
+	color:red;
+}
+.infoxbox-on{
+	
+	color:#286090;
+}
+.infobox>.infobox-icon{
+	display: inline-block;
+	vertical-align: top;
+	width: 60px;
+}
+.infobox > .infobox-data{
+	display: inline-block;
+	font-size: 16px;
+	line-height: 21px;
+	padding-left: 10px;
+	min-width: 230px;
+	text-align: left;
+	top:0;
+}
+.infobox > .infobox-icon>[class*="icon-"]{
+	display: inline-block;
+	height:55px;
+	margin:0px;
+	padding: 1px 1px 0px 2px;
+	border: 0;
+	text-align: center;
+	position: relative;
+	border-radius: 100%;
+	margin-bottom: 5px;
+}
+.infobox>.infobox-data>.infobox-data-number{
+	display: block;
+	font-size: 22px;
+	margin: 5px 0 10px;
+	position: relative;
+	text-shadow: 1px 1px 0 rgba(0,0,0,0.15);
+}
+.infobox .infobox-content{
+	color:#555;
+	margin-top:5px;
+}

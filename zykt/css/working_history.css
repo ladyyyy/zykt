@@ -1,0 +1,25 @@
+#data-table {
+		margin-left: 1%;
+		margin-top: 1%;
+		overflow-x: scroll;
+		overflow-y: scroll;
+		max-height: 600px;
+
+
+	}
+
+	/*防止table中元素过长的时候进行换行*/
+	#data-table td {
+		word-break: keep-all;
+		white-space: nowrap;
+		min-width: 80px;
+
+	}
+
+	#data-table th {
+		word-break: keep-all;
+		white-space: nowrap;
+		min-width: 80px;
+	}
+
+	

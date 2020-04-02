@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<!--在这里导入thymeleaf-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>Title</title>
+
+			<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+			<link rel="stylesheet" href="css/demo1.css" />
+			<script type="application/javascript" src="js/jquery.min.js"></script>
+			<script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+			<script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+			<script src="laydate/laydate.js"></script>
+
+			<style type="text/css">
+				.panel-group a {
+					font-size: 14px;
+					font-weight: 600;
+					color: #eeeaea;
+					text-decoration: none;
+				}
+
+				.panel-group a:hover {
+					text-decoration: none;
+				}
+
+				.panel-group {
+					background-color: #47475c;
+					width: 100%;
+					height: 700px;
+					margin-top: -15px;
+					margin-bottom: 0px;
+				}
+
+				.panel-group .panel {
+					background-color: rgba(91, 107, 122, 0.95);
+					border: none;
+				}
+
+				.panel-heading {
+					border-top-left-radius: 0px;
+					border-top-right-radius: 0px;
+				}
+
+				.panel-default>.panel-heading {
+					border: none;
+					color: #eeeaea;
+					background-color: #47475c;
+				}
+
+				.panel-default>.panel-heading>span {
+					font-size: 14px;
+					font-weight: 600;
+				}
+
+				.panel-default>.panel-heading:active,
+				.panel-default>.panel-heading:hover {
+					background-color: rgba(91, 107, 122, 0.95);
+					color: #90ef7f;
+				}
+
+				.panel-default>.panel-heading>a:hover {
+					text-decoration: none;
+				}
+
+				.panel-group .panel-heading+.panel-collapse>.panel-body {
+					border: none;
+				}
+
+				.panel-body {
+					padding: 0px;
+				}
+
+				.panel-group .nav>li {
+					padding: 1px 0px 0px 0px;
+				}
+
+				.panel-group .nav>li>a {
+					text-decoration: none;
+					padding: 10px 10px 10px 35px;
+				}
+
+				.panel-group .nav>li>a:hover,
+				.nav>li>a:focus {
+					background-color: rgba(91, 107, 122, 0.95);
+				}
+			</style>
+
+		</head>
+		<body>
+			<nav class="navbar navbar-default" style="padding-right: 0px;">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">绿建联中央空调</a>
+					</div>
+
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#" id="warn">
+									<span class="glyphicon glyphicon-bell" style="font-size: 20px;z-index: 1"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" id="msg">
+									<span class="  glyphicon glyphicon-envelope" style="font-size: 20px;"></span>
+									<span class="badge">14</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="#" id="avatar_a">
+									<img class="avatar_img" src="/imgs/01.jpg">
+								</a>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">空山新雨
+									<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">个人信息</a></li>
+									<li><a href="#">修改密码</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#">退出登录</a></li>
+								</ul>
+							</li>
+						</ul>
+
+						<ul class="nav navbar-nav navbar-right" style="margin-right: 100px;">
+							<li><a href="index_camera.html">实时监控 <span class="sr-only">(current)</span></a></li>
+
+							<li class="">
+								<a href="history_line.html">数据查询</a>
+							</li>
+							<li class="active"><a href="device_artifical_check.html">设备管理</a>
+							</li>
+							<li class="">
+								<a href="energy_table.html">能耗管理</a>
+							</li>
+							<li class="">
+								<a href="alarm_history_record.html">告警管理</a>
+							</li>
+
+							<li class="">
+								<a href="working_analyze.html">运营分析</a>
+
+							</li>
+							<li class="">
+								<a href="system_device.html">系统管理</a>
+
+							</li>
+							<li><a href="#">监控画面</a></li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
+
+			<div class="row" style="position: relative;margin-top: 15px;margin-right: 0px;">
+				<div class="col-sm-2" style="padding-right: 0px;">
+					<div class="panel-group" id="panelContainer">
+						<div class="panel panel-default">
+							<div id="header1" class="panel-heading" data-toggle="collapse" data-target="#sub1" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="#">中央空调</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+							<div id="sub1" class="collapse panel-collapse">
+								`<div class="panel-body">
+									<ul class="nav">
+										<li>
+											<a href="#">空调主机A</a>
+										</li>
+										<li>
+											<a href="#">空调主机B</a>
+										</li>
+										<li>
+											<a href="#">冷冻泵</a>
+										</li>
+										<li>
+											<a href="#">冷却塔</a>
+										</li>
+										<li>
+											<a href="#">冷冻水供水温度</a>
+										</li>
+									</ul>
+								</div>`
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div id="header2" class="panel-heading" data-toggle="collapse" data-target="#sub2" data-parent="#panelContainer">
+								<i class="glyphicon glyphicon-asterisk"></i>
+								<a href="#">其他</a>
+								<span class="glyphicon glyphicon-triangle-right pull-right"></span>
+							</div>
+							<div id="sub2" class="collapse panel-collapse">
+								<div class="panel-body">
+									<ul class="nav">
+										<li>
+											<a href="#">空调房温湿度</a>
+										</li>
+										<li>
+											<a href="#">配电房温湿度</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-10">
+					<div class="col-sm-4" style="padding-right: 0px;">
+						<form class="form-inline">
+							<div class="form-group">
+								<label class="radio-inline">
+									<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> 日
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 周
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 月
+								</label>
+							</div>
+							<div class="form-group form-group has-success" style="margin-left: 12px;">
+								<div class="input-group" style="margin-top: -3px;">
+									<input type="text" class="form-control" id="startTime" placeholder="2020-3-17" style="width: 130px;cursor: pointer;">
+									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-sm-4" style="padding-left: 0px;">
+
+						<!-- Single button -->
+						<div class="btn-group">
+							<button type="button" class="btn btn-sm btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								运行状态<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" style="overflow-y: scroll;height: 200px;">
+								<li><a href="#">通讯状态</a></li>
+								<li><a href="#">故障状态</a></li>
+								<li><a href="#">手自动状态</a></li>
+								<li><a href="#">电流</a></li>
+								<li><a href="#">电压</a></li>
+								<li><a href="#">功率</a></li>
+								<li><a href="#">负载率</a></li>
+								<li><a href="#">频率</a></li>
+								<li><a href="#">A相电流</a></li>
+								<li><a href="#">B相电流</a></li>
+								<li><a href="#">C相电流</a></li>
+								<li><a href="#">Uab</a></li>
+								<li><a href="#">Ubc</a></li>
+								<li><a href="#">Uca</a></li>
+								<li><a href="#">柜内温度</a></li>
+								<li><a href="#">冷冻水供水总管压力</a></li>
+								<li><a href="#">le冷冻水回水总管压力</a></li>
+								<li><a href="#">冷冻水供水总管温度</a></li>
+								<li><a href="#">冷冻水回水总管温度</a></li>
+								<li><a href="#">有功电度</a></li>
+								<li><a href="#">主机冷冻回水温度</a></li>
+								<li><a href="#">主机冷却出水温度</a></li>
+								<li><a href="#">主机冷冻供水温度</a></li>
+								<li><a href="#">主机冷却进水温度</a></li>
+								<li><a href="#">蒸发器压力</a></li>
+								<li><a href="#">水流状态</a></li>
+								<li><a href="#">冷媒温度</a></li>
+								<li><a href="#">冷凝器饱和温度</a></li>
+								<li><a href="#">冷凝器压力</a></li>
+								<li><a href="#">热油温度</a></li>
+								<li><a href="#">热油压差</a></li>
+								<li><a href="#">热油压力</a></li>
+								<li><a href="#">点击运行状态</a></li>
+								<li><a href="#">振动频率</a></li>
+								<li><a href="#">轴承振动</a></li>
+								<li><a href="#">泵体振动</a></li>
+								<li><a href="#">蒸发饱和压力</a></li>
+								<li><a href="#">水流量</a></li>
+								<li><a href="#">主机冷冻水流量</a></li>
+								<li><a href="#">主机冷却水流量</a></li>
+								<li><a href="#">冷却水进水总管压力</a></li>
+								<li><a href="#">冷却水出水总管压力</a></li>
+							</ul>
+						</div>
+						<button class="btn btn-sm btn-primary" style="margin-left: 15px;"><span class="glyphicon glyphicon-search"></span>&nbsp;查询</button>
+						<button class="btn btn-sm btn-primary" style="margin-left: 15px;"><span class="glyphicon glyphicon-log-out"></span>&nbsp;导出</button>
+					</div>
+					<div class="col-sm-12">
+						<hr style="color: #787d88;height: 5px;">
+						<div id="container" style="min-width:400px;height:400px;margin-top: 35px;"></div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+			<script>
+				//执行一个laydate实例
+				laydate.render({
+					elem: '#startTime' //指定元素
+				});
+
+
+				var chart = Highcharts.chart('container', {
+					chart: {
+						type: 'spline'
+					},
+					title: {
+						text: '空调主机A运行状态历史曲线分析'
+					},
+					subtitle: {
+						text: '2020-03-17--2020-03-18'
+					},
+					xAxis: {
+						categories: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00',
+							'18:00', '21:00', '00:00'
+						]
+					},
+					yAxis: {
+						title: {
+							text: '温度'
+						},
+						labels: {
+							formatter: function() {
+								return this.value + '°';
+							}
+						}
+					},
+					tooltip: {
+						crosshairs: true,
+						shared: true
+					},
+					plotOptions: {
+						spline: {
+							marker: {
+								radius: 4,
+								lineColor: '#666666',
+								lineWidth: 1
+							}
+						}
+					},
+					series: [{
+						name: '最高值MAX',
+						data: [10.0, 12, 11, 14, 27, {
+							y: 26.5,
+						}, 27, 28, 26]
+					}, {
+						name: '平均值AVG',
+						data: [7.0, 6.9, 9.5, 14.5, 25.2, {
+							y: 26.5,
+						}, 23.3, 18.3, 13.9]
+					}, {
+						name: '最低值MIN',
+						data: [{
+							y: 3.9,
+						}, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2]
+					}]
+				});
+			</script>
+
+
+
+
+
+
+		</body>
+	</html>
